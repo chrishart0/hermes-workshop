@@ -206,7 +206,9 @@ section.lead .meta {
 <!-- _class: lead -->
 <!-- _footer: '' -->
 
-# Build Your Own **Useful Agents**
+# 2026: Year of the Open Source Agent
+
+### What will you build?
 
 
 <div class="meta">github.com/chrishart0/linuxfest-hermes-workshop</div>
@@ -215,6 +217,26 @@ section.lead .meta {
 OPENING (0:00). Keep slides light; talk over them.
 Start with coding agents as the familiar proof point, then widen the frame: if agents can inspect repos, run tools, and iterate, what else can they do for the rest of your work?
 -->
+
+---
+
+# Agenda
+
+- What's an agent
+- Real world examples
+- Hermes
+- You setup Hermes
+- What will you build?
+
+---
+<style scoped>
+section {
+  background-image: url("assets/introductions.png");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+</style>
 
 ---
 
@@ -230,6 +252,21 @@ Start with coding agents as the familiar proof point, then widen the frame: if a
 Suggested beat from docs/workshop-objective.md:
 Agents can write code, inspect repos, run tests, and iterate. That use case is locked in. Today is about applying the same shape outside the editor.
 -->
+
+---
+
+# What is an agent?
+
+---
+
+<style scoped>
+section {
+  background-image: url("assets/what-is-an-agent.png");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+</style>
 
 ---
 
@@ -314,6 +351,10 @@ This is the bridge slide — land the closing line hard: nobody in this room is 
 
 ---
 
+![bg contain](assets/hermes-logo.jpeg)
+
+---
+
 ## Hermes mental model
 
 <div class="modelline">
@@ -337,7 +378,7 @@ Callback: Ana is all four lines at full size — memory = the business definitio
 
 # Workshop guide
 
-github.com/chrishart0/linuxfest-hermes-workshop/blob/master/docs/workshop-guide.md
+github.com/chrishart0/linuxfest-hermes-workshop/
 
 ## Checklist
 

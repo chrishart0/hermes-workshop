@@ -143,6 +143,8 @@ The workshop paths:
 The alternatives are general guides, not scripts — each gives you the pattern, the
 ingredients of a good prompt, and links to the official docs. You drive:
 
+*WANING:* I have not tested any of these below, they are all LLM written guides based off some loose prompting.
+
 2. [Homelab / Production Health Agent](/examples/prompts/homelab-health.md)
    - For read-only summaries of machines, services, disk, memory, logs, or app
      health.

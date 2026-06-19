@@ -1,24 +1,28 @@
-# LinuxFest Workshop: Build Practical Agents with Hermes
+# Workshop: Build Practical Agents with Hermes
 
-A 2.5-hour, terminal-first workshop. Build an agent that reads what you care about,
-cross-references it against your world, and delivers what matters to where you work.
+Build an agent that does something useful for you and live where you work. From 0 -> 1. This workshop is for you if you've never built an agent or if you've built dozens and want to learn how Hermes makes it easier than ever.
 
 ## What we'll cover
 
+### Part 1) Art of the Possible
 - **What's an agent** — not a chatbot. Memory, tools, skills, and a schedule
-- **Real use cases** — daily intelligence, homelab health, incident triage, ChatOps over your data
-- **Why Hermes** — open-source, CLI-first, self-improving skills, multi-platform gateway
+- **Real use cases** — daily intelligence briefing, business KPI report, homelab health, incident triage, Chat over your data
+- **Why Hermes** — works where you already work, self-improving skills, multi-platform, ease of setup
 - **Use-case brainstorm** — figure out what *you* want to build before touching install
-- **Install and setup** — Hermes on your machine, provider connected, smoke-tested
+
+### Part 2) Setup Your Agent
+- **Install and setup** — Hermes on your machine, provider connected
 - **Connect where you work** — gateway to Discord, Telegram, Slack, or Teams
+
+### Part 3) Make Your Agent Maximally Useful for You
 - **Build your agent** — pick a use case, bootstrap a skill, run your first report
 - **Feedback loop** — teach your skill to get sharper with every run
-- **Cron and delivery** — schedule it and get reports without asking
+- **Scheudle and delivery** — Run your agent on a schedule, have it message you where you already work
 
 ## What you'll leave with
 
-- Hermes installed and working
-- A gateway connected to your messaging platform
+- Your own AI Agent installed and working
+- Connected to your messaging platform
 - One agent skill bootstrapped for something you actually care about
 - The pattern to build more
 
@@ -60,7 +64,7 @@ The whole path, in order:
 
 ```mermaid
 flowchart LR
-    K["1 · get an<br/>LLM key"] --> I["2 · install<br/>Hermes"] --> M["3 · pick provider<br/>and model"] --> T([smoke test]) --> G["4 · connect<br/>gateway"] --> U["5 · build your<br/>first agent"]
+    K["1 · get an<br/>LLM key"] --> I["2 · install<br/>Hermes"] --> M["3 · pick provider<br/>and model"] --> T([test]) --> G["4 · connect<br/>gateway"] --> U["5 · build your<br/>first agent"]
 ```
 
 ## 1) LLM Inference - Get Your API Key Ready
@@ -103,7 +107,7 @@ list these common subscription/OAuth-friendly paths:
 
 If none of those applies, use OpenRouter for the session. Do not spend workshop
 time fighting a local model or an enterprise cloud account unless it was already
-prepared and smoke-tested.
+prepared and tested.
 
 ### Local Open Weights models (not recommended during the session)
 

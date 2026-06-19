@@ -107,3 +107,13 @@ Prompt
 ```text
 Schedule my daily-intelligence-report for 8am daily delivery.
 ```
+
+---
+
+## What "done" looks like today
+
+Hermes installed, a provider connected, the smoke test passing, a gateway
+connected to your messaging platform, and one daily-intelligence-report skill
+bootstrapped for something you actually care about — ideally with a first report
+generated and one round of feedback applied. Cron scheduling is a win for
+tonight, not a requirement for the session.

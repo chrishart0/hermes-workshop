@@ -138,6 +138,71 @@ curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 6) Tools: use the default set
 7) Browser provider: local
 
+### Optional: Safer Terminal Backends
+
+For the workshop, choosing the **local** terminal backend is fine. It is the
+simplest path and keeps setup friction low. Just understand the tradeoff: local
+means Hermes runs shell commands on the same machine and user account where you
+started it. Treat it like giving a careful junior sysadmin a terminal: use
+read-only first, avoid secrets in prompts, and do not run it as root.
+
+If you want more isolation after the workshop, Hermes can run terminal commands
+through other backends:
+
+- **Docker backend:** commands run inside a container instead of directly on your
+  host. This is a good next step for experimenting safely. Docker docs:
+  <https://hermes-agent.nousresearch.com/docs/user-guide/docker>
+- **SSH backend:** commands run on a separate machine or VM that you control.
+  This is useful for homelab or production-health agents because you can keep
+  Hermes away from your personal laptop. It also gives the agent a safe place to
+  be root: on a disposable VM or tightly scoped server, you can let it install
+  packages, restart services, inspect logs, and run commands more freely without
+  giving it root on your daily machine.
+
+SSH backend environment variables are documented here:
+<https://hermes-agent.nousresearch.com/docs/reference/environment-variables#ssh-backend>
+
+Minimal SSH setup:
+
+```bash
+# 1) Generate a dedicated key for Hermes
+ssh-keygen -t ed25519 -f ~/.ssh/hermes_backend_key -C "hermes-backend"
+
+# 2) Install the public key on the remote host
+ssh-copy-id -i ~/.ssh/hermes_backend_key.pub hermes@your-server
+
+# 3) Put these in ~/.hermes/.env
+TERMINAL_ENV=ssh
+TERMINAL_SSH_HOST=your-server
+TERMINAL_SSH_USER=hermes
+TERMINAL_SSH_KEY=~/.ssh/hermes_backend_key
+```
+
+Where to place the SSH key:
+
+- **macOS/Linux:** `~/.ssh/hermes_backend_key`, then lock it down with
+  `chmod 600 ~/.ssh/hermes_backend_key`.
+- **Windows using WSL2:** put the key inside the WSL home directory, for example
+  `/home/<your-wsl-user>/.ssh/hermes_backend_key`, not only in your Windows home
+  folder. Then run `chmod 600 ~/.ssh/hermes_backend_key` inside WSL.
+- **Windows native/Git Bash:** put the key at
+  `C:\Users\<your-windows-user>\.ssh\hermes_backend_key`. If SSH refuses to use
+  it because permissions are too open, run this from PowerShell:
+
+```powershell
+icacls "$env:USERPROFILE\.ssh\hermes_backend_key" /inheritance:r
+icacls "$env:USERPROFILE\.ssh\hermes_backend_key" /grant:r "$($env:USERNAME):R"
+```
+
+For safety, start with a non-root remote `hermes` user and grant only the access
+it needs. If you later want root, make that an intentional choice on a disposable
+VM or clearly bounded host. Test the connection manually before switching Hermes
+over:
+
+```bash
+ssh -i ~/.ssh/hermes_backend_key hermes@your-server 'whoami && hostname'
+```
+
 Reload your shell if the installer asks you to:
 
 ```bash

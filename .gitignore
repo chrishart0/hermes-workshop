@@ -5,9 +5,11 @@ npm-debug.log*
 
 # Rendered slide artifacts (regenerate with: npm run render)
 dist/
+docs/.vitepress/cache/
+docs/.vitepress/dist/
 *.local.html
 
-# Hermes / agent local state — never commit secrets or machine state
+# Hermes / agent local state - never commit secrets or machine state
 .hermes/
 hermes.log
 *.env
@@ -28,3 +30,4 @@ demo-output/
 test-runs/
 
 CLAUDE.md
+.vercel

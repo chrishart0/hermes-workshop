@@ -1,23 +1,47 @@
-# Workshop: Build Practical Agents with Hermes
+# Building Practical Agents with Hermes Workshop
 
 Build an agent that does something useful for you and live where you work. From 0 -> 1. This workshop is for you if you've never built an agent or if you've built dozens and want to learn how Hermes makes it easier than ever.
+
+## Static Workshop Site
+
+The MVP public site is built with VitePress from Markdown in [`docs/`](docs/).
+Target domain: `hermes.arcadian.cloud`.
+
+Run it locally:
+
+```bash
+npm install
+npm run docs:dev
+```
+
+Build and preview the static output:
+
+```bash
+npm run docs:build
+npm run docs:preview
+```
+
+GitHub Pages deployment is defined in [`.github/workflows/pages.yml`](.github/workflows/pages.yml).
+The custom domain is recorded in [`docs/public/CNAME`](docs/public/CNAME);
+DNS still needs to point `hermes.arcadian.cloud` at GitHub Pages when the repo is
+ready to publish.
 
 ## What we'll cover
 
 ### Part 1) Art of the Possible
-- **What's an agent** — not a chatbot. Memory, tools, skills, and a schedule
-- **Real use cases** — daily intelligence briefing, business KPI report, homelab health, incident triage, Chat over your data
-- **Why Hermes** — works where you already work, self-improving skills, multi-platform, ease of setup
-- **Use-case brainstorm** — figure out what *you* want to build before touching install
+- **What's an agent** - not a chatbot. Memory, tools, skills, and a schedule
+- **Real use cases** - daily intelligence briefing, business KPI report, homelab health, incident triage, Chat over your data
+- **Why Hermes** - works where you already work, self-improving skills, multi-platform, ease of setup
+- **Use-case brainstorm** - figure out what *you* want to build before touching install
 
 ### Part 2) Setup Your Agent
-- **Install and setup** — Hermes on your machine, provider connected
-- **Connect where you work** — gateway to Discord, Telegram, Slack, or Teams
+- **Install and setup** - Hermes on your machine, provider connected
+- **Connect where you work** - gateway to Discord, Telegram, Slack, or Teams
 
 ### Part 3) Make Your Agent Maximally Useful for You
-- **Build your agent** — pick a use case, bootstrap a skill, run your first report
-- **Feedback loop** — teach your skill to get sharper with every run
-- **Scheudle and delivery** — Run your agent on a schedule, have it message you where you already work
+- **Build your agent** - pick a use case, bootstrap a skill, run your first report
+- **Feedback loop** - teach your skill to get sharper with every run
+- **Scheudle and delivery** - Run your agent on a schedule, have it message you where you already work
 
 ## What you'll leave with
 
@@ -55,7 +79,7 @@ Core workshop target:
 - [ ] Hermes installed
 - [ ] One model/provider connected
 - [ ] Local CLI test works
-- [ ] Gateway connected — Hermes can reach you on Discord, Telegram, Slack, or Teams
+- [ ] Gateway connected - Hermes can reach you on Discord, Telegram, Slack, or Teams
 - [ ] One Daily Intelligence Report skill bootstrapped for something you actually care about
 
 Cron and richer data sources are stretch goals.
@@ -134,7 +158,7 @@ curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 2) Model provider: **OpenRouter** if you don't have another subscription
 3) Model: `openrouter/deepseek-v4-pro`
 4) Terminal backend: local
-5) Platform: set up gateway now — we'll do this together in the session
+5) Platform: set up gateway now - we'll do this together in the session
 6) Tools: use the default set
 7) Browser provider: local
 
@@ -252,7 +276,7 @@ Set up the gateway so Hermes can reach you on your messaging platform:
 hermes gateway setup
 ```
 
-Pick your platform — Discord, Telegram, Slack, Teams, or email — and follow the
+Pick your platform - Discord, Telegram, Slack, Teams, or email - and follow the
 wizard. Test by asking Hermes to send you a message.
 
 Docs: <https://hermes-agent.nousresearch.com/docs/user-guide/messaging>
@@ -270,7 +294,7 @@ The workshop paths:
    - For morning reports over news, tools, releases, CVEs, newsletters, events,
      metrics, or other sources you care about.
 
-The alternatives are general guides — each gives you the pattern, the
+The alternatives are general guides - each gives you the pattern, the
 ingredients of a good prompt, and links to the official docs. You drive:
 
 2. [Homelab / Production Health Agent](examples/prompts/homelab-health.md)

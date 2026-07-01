@@ -1,9 +1,9 @@
 # Daily Intelligence Agent: the default workshop project
 
-**Watches:** the stuff you already check every morning — release notes, advisories, feeds,
+**Watches:** the stuff you already check every morning - release notes, advisories, feeds,
 newsletters, dashboards, local events, whatever your morning tabs are.
-**Delivers:** one short report that cross-references all of it against *your* world — your
-stack, your machines, your projects, your plans — and bubbles up only what matters.
+**Delivers:** one short report that cross-references all of it against *your* world - your
+stack, your machines, your projects, your plans - and bubbles up only what matters.
 
 
 ```mermaid
@@ -71,7 +71,7 @@ first report, give it a few minutes; Hermes is actually reading your sources.
   - sources: exported support/feedback data, key metrics
   - world: your product and current release
   - filter: new problem patterns, odd numbers.
-  (Use exports/copies — never paste customer data into prompts.)
+  (Use exports/copies - never paste customer data into prompts.)
 
 ---
 
@@ -82,7 +82,7 @@ first report, give it a few minutes; Hermes is actually reading your sources.
 ```text
 Feedback on today's report: <e.g. 'the kernel CVE was the only useful item; the three
 AI-hype items were noise; rank security above releases; add the Tailscale changelog as a
-source; too long — cap at 250 words'>
+source; too long - cap at 250 words'>
 
 Update my daily-intelligence-report skill with this feedback. Keep it read-only and
 source-required. Tell me in one line what you changed.
@@ -114,6 +114,6 @@ Schedule my daily-intelligence-report for 8am daily delivery.
 
 Hermes installed, a provider connected, the smoke test passing, a gateway
 connected to your messaging platform, and one daily-intelligence-report skill
-bootstrapped for something you actually care about — ideally with a first report
+bootstrapped for something you actually care about - ideally with a first report
 generated and one round of feedback applied. Cron scheduling is a win for
 tonight, not a requirement for the session.

@@ -2,11 +2,11 @@
 
 ## Locked objective
 
-Build your first useful agent with Hermes — and connect it to where you already work.
+Build your first useful agent with Hermes - and connect it to where you already work.
 
 Make Hermes read the stuff you already read every morning, cross-reference it against
 what you actually run, manage, attend, or care about, and bubble the most important
-things to the top — then deliver it to your Discord, Telegram, Slack, or Teams.
+things to the top - then deliver it to your Discord, Telegram, Slack, or Teams.
 
 The 2.5-hour format gives us time to do the gateway setup live and give attendees
 real runway to implement their own use case, not just the default path.
@@ -27,7 +27,7 @@ them through the workshop:
    are those agents actually doing?
 3. One agent caught real customer-impacting issues during a live release. How did it
    know what mattered, and how did it help?
-4. Attendees can leave with the start of one themselves — and connected to where they
+4. Attendees can leave with the start of one themselves - and connected to where they
    already work. How can that be possible in one afternoon?
 5. The trick is not summarization. Then what is the trick?
 
@@ -40,7 +40,7 @@ A new loop for the 2.5-hour format:
 
 Suggested opening language:
 
-> You have all seen the AI agent hype. Many of you have probably used coding agents —
+> You have all seen the AI agent hype. Many of you have probably used coding agents -
 > Codex, Claude Code, OpenCode, Cursor, whatever. That use case is locked in. Agents
 > can write code, inspect repos, run tests, and iterate.
 >
@@ -53,7 +53,7 @@ Suggested opening language:
 > support inbox. Your calendar. Your health metrics. Your business metrics.
 >
 > I am not talking about something theoretical. I have Hermes agents doing this every
-> day — for my own life and for real production products. One of them recently watched
+> day - for my own life and for real production products. One of them recently watched
 > a live feature release, surfaced customer-impacting issues from analytics, and helped
 > me respond faster than I could have by staring at dashboards.
 >
@@ -140,7 +140,7 @@ By the end of 2.5 hours, attendees should have:
 This is not a generic news bot.
 
 It is an agent that turns your morning information diet into a personalized
-intelligence report — and delivers it where you already look.
+intelligence report - and delivers it where you already look.
 
 ## The four-part mental model
 
@@ -154,17 +154,17 @@ Positioning line, do not dilute: **"Make an agent that helps you run your machin
 
 The 2.5-hour session shape is:
 
-1. **Story and concept** (~45 min) — open the loop with real use cases, ground in
+1. **Story and concept** (~45 min) - open the loop with real use cases, ground in
    definitions, show Ana and the daily-intel agent, explain the pattern, and run a
    use-case brainstorm so attendees arrive at install already knowing what they
    want to build.
-2. **Setup** (~30 min) — get Hermes installed, connected to a provider, smoke-tested,
+2. **Setup** (~30 min) - get Hermes installed, connected to a provider, smoke-tested,
    and connected to a messaging platform via the gateway.
-3. **Build** (~75 min) — walk through the daily intelligence bootstrap live, then
+3. **Build** (~75 min) - walk through the daily intelligence bootstrap live, then
    free build time where attendees implement their chosen use case. Apply one round
    of feedback. The extra time in this format lets people actually build, not just
    watch a demo.
-4. **Next layers and wrap** (~10 min) — show cron, richer sources, and the path
+4. **Next layers and wrap** (~10 min) - show cron, richer sources, and the path
    forward. Close with the offer of evening help.
 
 ## Definition of done

@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hermes Agent Workshop - Hero Poster</title>
+  <style>
+    :root {
+      --blue: #0500f7;
+      --blue-deep: #02005d;
+      --ink: #050508;
+      --white: #fffdf6;
+      --muted: rgba(255,255,255,.78);
+      --rule: rgba(255,255,255,.32);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; background: #111; }
+    body {
+      display: grid;
+      place-items: center;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .sheet {
+      position: relative;
+      width: 8.5in;
+      height: 11in;
+      overflow: hidden;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 78% 33%, rgba(255,255,255,.17) 0 1px, transparent 2px) 0 0 / 34px 34px,
+        linear-gradient(102deg, var(--blue) 0%, var(--blue) 55%, #030099 78%, #03002a 100%);
+      isolation: isolate;
+    }
+
+    .sheet::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.23), transparent 28%, transparent 66%, rgba(0,0,0,.56)),
+        radial-gradient(circle at 88% 12%, rgba(255,255,255,.18), transparent 29%),
+        radial-gradient(circle at 50% 105%, rgba(0,0,0,.55), transparent 34%);
+      z-index: -3;
+    }
+
+    .hero-art {
+      position: absolute;
+      right: -1.72in;
+      top: .38in;
+      width: 6.7in;
+      height: 8.42in;
+      object-fit: contain;
+      filter: drop-shadow(-20px 30px 0 rgba(0,0,0,.25)) drop-shadow(0 0 34px rgba(255,255,255,.08));
+      opacity: .98;
+      z-index: -1;
+    }
+
+    .hero-scrim {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 58%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(5,0,247,.28), transparent 30%, rgba(0,0,0,.46) 100%);
+      z-index: -2;
+    }
+
+    main {
+      position: absolute;
+      inset: .52in .56in .46in .58in;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    .topline {
+      display: flex;
+      align-items: center;
+      gap: .16in;
+      width: 4.82in;
+      padding: .12in .16in;
+      border: 1.4px solid var(--rule);
+      border-radius: .035in;
+      background: rgba(0,0,0,.2);
+      backdrop-filter: blur(1px);
+      text-transform: uppercase;
+      letter-spacing: .105em;
+      font-size: .132in;
+      font-weight: 800;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .topline::before {
+      content: "";
+      width: .12in;
+      height: .12in;
+      border: 2px solid var(--white);
+      border-radius: 50%;
+      box-shadow: .058in 0 0 -2px var(--white);
+      flex: 0 0 auto;
+    }
+
+    .copy {
+      width: 4.62in;
+      padding-top: .34in;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: .79in;
+      line-height: .84;
+      letter-spacing: -.045em;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-wrap: balance;
+      text-shadow: 0 4px 0 rgba(0,0,0,.16);
+    }
+
+    .subhead {
+      margin: .26in 0 0;
+      width: 4.18in;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: .265in;
+      line-height: 1.05;
+      font-weight: 700;
+    }
+
+    .bodycopy {
+      margin: .16in 0 0;
+      width: 3.9in;
+      color: rgba(255,255,255,.84);
+      font-size: .152in;
+      line-height: 1.5;
+      font-weight: 550;
+    }
+
+    .lower {
+      display: grid;
+      grid-template-columns: 4.56in 1fr;
+      column-gap: .26in;
+      align-items: end;
+    }
+
+    .event-card {
+      padding: .22in .23in .2in;
+      border: 1.8px solid rgba(255,255,255,.55);
+      background: rgba(0,0,0,.32);
+      box-shadow: 0 20px 48px rgba(0,0,0,.27);
+    }
+
+    .eyebrow {
+      margin-bottom: .115in;
+      color: rgba(255,255,255,.78);
+      font-size: .118in;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: .17em;
+    }
+
+    .date {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: .31in;
+      line-height: .96;
+      font-weight: 900;
+      letter-spacing: -.018em;
+    }
+
+    .time, .place, .utility {
+      margin-top: .062in;
+      font-size: .145in;
+      line-height: 1.22;
+      font-weight: 800;
+    }
+
+    .place { color: rgba(255,255,255,.88); }
+    .utility {
+      margin-top: .13in;
+      padding-top: .11in;
+      border-top: 1px solid rgba(255,255,255,.32);
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: .045em;
+      font-size: .132in;
+    }
+
+    .register-row {
+      display: grid;
+      grid-template-columns: 1.12in 1fr;
+      gap: .16in;
+      align-items: center;
+      margin-top: .18in;
+    }
+
+    .qr-card {
+      width: 1.12in;
+      height: 1.12in;
+      padding: .09in;
+      background: #fff;
+      border-radius: .055in;
+      box-shadow: 0 12px 26px rgba(0,0,0,.24);
+    }
+
+    .qr-card img { width: 100%; height: 100%; display: block; image-rendering: crisp-edges; }
+
+    .register {
+      font-size: .15in;
+      line-height: 1.22;
+      font-weight: 900;
+    }
+    .register span {
+      display: block;
+      color: rgba(255,255,255,.68);
+      font-size: .088in;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      margin-bottom: .045in;
+    }
+
+    .logo-lockup {
+      justify-self: stretch;
+      display: grid;
+      gap: .095in;
+      padding: .12in;
+      border-radius: .035in;
+      border: 1.6px solid rgba(255,255,255,.68);
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 16px 38px rgba(0,0,0,.22);
+    }
+
+    .logo-box {
+      display: grid;
+      place-items: center;
+      min-height: .78in;
+      border: 1px solid rgba(0,0,0,.08);
+      background: #050508;
+      overflow: hidden;
+    }
+
+    .logo-box.aic img { width: .62in; height: auto; }
+    .logo-box.hermes img { width: 1.22in; height: auto; display: block; }
+
+    .logo-caption {
+      color: #07070d;
+      text-align: center;
+      font-size: .088in;
+      line-height: 1.15;
+      font-weight: 950;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .vertical-mark {
+      position: absolute;
+      right: .18in;
+      bottom: 3.12in;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      color: rgba(255,255,255,.34);
+      font-size: .09in;
+      font-weight: 900;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    @page { size: Letter portrait; margin: 0; }
+    @media print {
+      html, body { background: white; }
+      .sheet { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <article class="sheet" aria-label="Hermes Agent workshop flyer">
+    <div class="hero-scrim"></div>
+    <img class="hero-art" src="../assets/hermes-official/hero-art.webp" alt="Official Hermes hero art" />
+    <main>
+      <section>
+        <div class="topline">AI Collective, Chattanooga presents</div>
+        <div class="copy">
+          <h1>Make Hermes Read<br />the Boring Stuff</h1>
+          <p class="subhead">Build your first useful AI agent with Hermes.</p>
+          <p class="bodycopy">Install Hermes, connect a model, wire up messaging, and bootstrap an agent that filters information for what actually matters.</p>
+        </div>
+      </section>
+
+      <div></div>
+
+      <section class="lower" aria-label="Event details and registration">
+        <div class="event-card">
+          <div class="eyebrow">Hands-on workshop</div>
+          <div class="date">Saturday, July 18</div>
+          <div class="time">1:00 PM–5:00 PM EDT</div>
+          <div class="place">Business Development Center<br />100 Cherokee Blvd., Chattanooga</div>
+          <div class="utility">Food included. Bring a laptop.</div>
+          <div class="register-row">
+            <div class="qr-card"><img src="../assets/flyer/luma-aic-ch-7-18-qr.png" alt="QR code for luma.com/aic-ch-7-18" /></div>
+            <div class="register"><span>Register</span>luma.com/aic-ch-7-18</div>
+          </div>
+        </div>
+
+        <aside class="logo-lockup" aria-label="Partner logos">
+          <div class="logo-box aic"><img src="../assets/flyer/ai-collective-logo.png" alt="AI Collective logo" /></div>
+          <div class="logo-box hermes"><img src="../assets/hermes-logo.jpeg" alt="Hermes Agent logo" /></div>
+          <div class="logo-caption">AIC + Hermes</div>
+        </aside>
+      </section>
+    </main>
+    <div class="vertical-mark">Hermes Agent Workshop</div>
+  </article>
+</body>
+</html>

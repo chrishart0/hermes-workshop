@@ -1,0 +1,1237 @@
+/* ============================================================
+   Hermes Agent Workshop - brand theme
+   Palette: electric blue #0000f2 + white / paper editorial.
+   Type: Playfair Display (serif display), Inter (sans body),
+         IBM Plex Mono (labels, code, UI).
+   ============================================================ */
+
+:root {
+  --hermes-blue: #0000f2;
+  --hermes-blue-press: #0000c2;
+  --hermes-ink: #0b0b16;
+  --hermes-paper: #eef1ff;
+
+  --hw-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --hw-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --hw-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --vp-c-brand-1: #0000f2;
+  --vp-c-brand-2: #1a1aff;
+  --vp-c-brand-3: #4d4dff;
+  --vp-c-brand-soft: rgba(0, 0, 242, 0.08);
+  --vp-button-brand-bg: #0000f2;
+  --vp-button-brand-hover-bg: #0000c2;
+  --vp-button-brand-active-bg: #0000a8;
+  --vp-button-brand-border: #0000f2;
+  --vp-button-brand-hover-border: #0000c2;
+
+  --vp-font-family-base: var(--hw-sans);
+  --vp-font-family-mono: var(--hw-mono);
+}
+
+/* ---- Global nav: hairline, serif wordmark ---- */
+.VPNavBar {
+  border-bottom: 1px solid rgba(11, 11, 22, 0.08);
+}
+.VPNavBar .title {
+  font-family: var(--hw-serif);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* ---- Documentation pages (pre-work, guides): on-brand + readable ---- */
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3 {
+  font-family: var(--hw-serif);
+  letter-spacing: -0.01em;
+}
+.vp-doc h2 {
+  border-top: 1px solid var(--vp-c-divider);
+  margin-top: 44px;
+  padding-top: 24px;
+}
+.vp-doc a {
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+.vp-doc table {
+  display: table;
+  width: 100%;
+}
+.vp-doc th {
+  white-space: nowrap;
+  background: var(--hermes-blue);
+  color: #fff;
+}
+.vp-doc tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--hermes-blue) 5%, white);
+}
+.vp-doc .custom-block.tip {
+  border-color: var(--hermes-blue);
+}
+
+/* Long shell one-liners must never crop on phones. Wrap them into a fully
+   visible block (the copy button still copies the whole command) instead of
+   a horizontally-scrolled snippet that reads as cut off. */
+@media (max-width: 600px) {
+  .vp-doc div[class*="language-"] pre,
+  .vp-doc div[class*="language-"] code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* ============================================================
+   PRE-WORK PAGE (pageClass: pw-page) - editorial setup doc.
+   Elevates the default docs chrome without becoming a landing page.
+   All custom pieces scoped under .pw-page so other docs are untouched.
+   ============================================================ */
+
+/* Mono eyebrow sitting above the serif H1 */
+.pw-page .vp-doc .pw-eyebrow {
+  font-family: var(--hw-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--hermes-blue);
+  margin: 0 0 14px;
+}
+/* Pull the H1 tight under its eyebrow */
+.pw-page .vp-doc h1 {
+  margin-top: 0;
+}
+
+/* Lead paragraph under the title */
+.pw-page .vp-doc .pw-lead {
+  font-size: 20px;
+  line-height: 1.55;
+  color: #33333f;
+  max-width: 60ch;
+  margin: 20px 0 0;
+}
+
+/* ---- Meta strip: time / status / source of truth ---- */
+.pw-page .vp-doc .pw-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 36px 0 0;
+  border-top: 1px solid rgba(0, 0, 242, 0.14);
+  border-bottom: 1px solid rgba(0, 0, 242, 0.14);
+}
+.pw-page .vp-doc .pw-meta > div {
+  padding: 20px 26px 20px 0;
+}
+.pw-page .vp-doc .pw-meta > div + div {
+  border-left: 1px solid rgba(0, 0, 242, 0.12);
+  padding-left: 26px;
+}
+.pw-page .vp-doc .pw-meta dt {
+  font-family: var(--hw-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 11px;
+  font-weight: 500;
+  color: #8a8a9a;
+  margin: 0 0 9px;
+}
+.pw-page .vp-doc .pw-meta dd {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--hermes-ink);
+}
+.pw-page .vp-doc .pw-meta dd a {
+  font-weight: 600;
+}
+
+/* ---- Source-of-truth note: elevate the "trust the docs" directive above a
+   plain meta cell, using the same blue-accent vocabulary as the safety callout
+   so it reads as an intentional instruction, not another stat. ---- */
+.pw-page .vp-doc .pw-source {
+  margin: 22px 0 0;
+  border-left: 3px solid var(--hermes-blue);
+  background: rgba(0, 0, 242, 0.03);
+  padding: 14px 20px;
+}
+.pw-page .vp-doc .pw-source-label {
+  font-family: var(--hw-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--hermes-blue);
+  margin: 0 0 5px;
+}
+.pw-page .vp-doc .pw-source p:last-child {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--hermes-ink);
+}
+
+/* ---- Fast path card ---- */
+.pw-page .vp-doc .pw-fastpath {
+  margin: 40px 0 0;
+  border: 1px solid rgba(0, 0, 242, 0.18);
+  background: var(--hermes-paper);
+  padding: 28px 32px 30px;
+}
+.pw-page .vp-doc .pw-fastpath-title {
+  font-family: var(--hw-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--hermes-blue);
+  margin: 0 0 6px;
+}
+.pw-page .vp-doc .pw-fastpath ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: pw;
+}
+.pw-page .vp-doc .pw-fastpath li {
+  counter-increment: pw;
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  align-items: start;
+  padding: 14px 0;
+  border-top: 1px solid rgba(0, 0, 242, 0.1);
+}
+.pw-page .vp-doc .pw-fastpath li:last-child {
+  padding-bottom: 0;
+}
+.pw-page .vp-doc .pw-fastpath li::before {
+  content: counter(pw, decimal-leading-zero);
+  font-family: var(--hw-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--hermes-blue);
+  padding-top: 2px;
+}
+.pw-page .vp-doc .pw-fastpath li span {
+  grid-column: 2;
+  font-weight: 600;
+  color: var(--hermes-ink);
+  font-size: 15px;
+}
+.pw-page .vp-doc .pw-fastpath li code {
+  grid-column: 2;
+  display: block;
+  margin: 8px 0 0;
+  font-family: var(--hw-mono);
+  font-size: 12.5px;
+  color: var(--hermes-blue-press);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(0, 0, 242, 0.12);
+  padding: 8px 11px;
+  overflow-wrap: anywhere;
+}
+.pw-page .vp-doc .pw-fastpath-note {
+  margin: 20px 0 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #56566a;
+}
+
+/* ---- Calm safety callout ---- */
+.pw-page .vp-doc .pw-callout {
+  margin: 22px 0 0;
+  border: 1px solid rgba(0, 0, 242, 0.14);
+  border-left: 3px solid var(--hermes-blue);
+  background: rgba(0, 0, 242, 0.03);
+  padding: 8px 26px;
+}
+.pw-page .vp-doc .pw-callout ul {
+  margin: 16px 0;
+}
+.pw-page .vp-doc .pw-callout li {
+  margin: 9px 0;
+}
+
+/* ---- Ready checklist with drawn boxes ---- */
+.pw-page .vp-doc .pw-check-label {
+  font-family: var(--hw-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--hermes-ink);
+  margin: 28px 0 10px;
+}
+.pw-page .vp-doc .pw-check {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.pw-page .vp-doc .pw-check li {
+  position: relative;
+  padding: 11px 0 11px 34px;
+  border-top: 1px solid rgba(0, 0, 242, 0.1);
+  font-size: 15px;
+  color: var(--hermes-ink);
+}
+.pw-page .vp-doc .pw-check li:first-child {
+  border-top: none;
+}
+.pw-page .vp-doc .pw-check li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 13px;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--hermes-blue);
+  border-radius: 3px;
+}
+.pw-page .vp-doc .pw-check--optional li::before {
+  border-color: #b7b7c4;
+}
+
+@media (max-width: 600px) {
+  .pw-page .vp-doc .pw-lead {
+    font-size: 18px;
+  }
+  .pw-page .vp-doc .pw-meta {
+    grid-template-columns: 1fr;
+  }
+  .pw-page .vp-doc .pw-meta > div {
+    padding: 15px 0;
+    border-top: 1px solid rgba(0, 0, 242, 0.1);
+  }
+  .pw-page .vp-doc .pw-meta > div:first-child {
+    border-top: none;
+  }
+  .pw-page .vp-doc .pw-meta > div + div {
+    border-left: none;
+    padding-left: 0;
+  }
+  .pw-page .vp-doc .pw-fastpath {
+    padding: 24px 20px 26px;
+  }
+}
+
+/* ============================================================
+   FOUR-HOUR OUTLINE PAGE (pageClass: ol-page) - attendee-facing
+   workshop overview. Shares the pre-work editorial vocabulary
+   (mono eyebrow, serif title, lead, meta strip, hairline rules)
+   and adds a phase timeline. All pieces scoped under .ol-page.
+   ============================================================ */
+
+/* Mono eyebrow above the serif H1 */
+.ol-page .vp-doc .ol-eyebrow {
+  font-family: var(--hw-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--hermes-blue);
+  margin: 0 0 14px;
+}
+.ol-page .vp-doc h1 {
+  margin-top: 0;
+}
+
+/* Lead paragraph under the title */
+.ol-page .vp-doc .ol-lead {
+  font-size: 20px;
+  line-height: 1.55;
+  color: #33333f;
+  max-width: 62ch;
+  margin: 20px 0 0;
+}
+
+/* ---- Meta strip: total time / format / outcome ---- */
+.ol-page .vp-doc .ol-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 36px 0 0;
+  border-top: 1px solid rgba(0, 0, 242, 0.14);
+  border-bottom: 1px solid rgba(0, 0, 242, 0.14);
+}
+.ol-page .vp-doc .ol-meta > div {
+  padding: 20px 26px 20px 0;
+}
+.ol-page .vp-doc .ol-meta > div + div {
+  border-left: 1px solid rgba(0, 0, 242, 0.12);
+  padding-left: 26px;
+}
+.ol-page .vp-doc .ol-meta dt {
+  font-family: var(--hw-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 11px;
+  font-weight: 500;
+  color: #8a8a9a;
+  margin: 0 0 9px;
+}
+.ol-page .vp-doc .ol-meta dd {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--hermes-ink);
+}
+
+/* ---- Phase timeline: mono time rail + serif phase cards ---- */
+.ol-page .vp-doc .ol-phases {
+  list-style: none;
+  margin: 40px 0 0;
+  padding: 0;
+}
+.ol-page .vp-doc .ol-phase {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 36px;
+  padding: 30px 0;
+  border-top: 1px solid rgba(0, 0, 242, 0.16);
+}
+.ol-page .vp-doc .ol-phase:last-child {
+  border-bottom: 1px solid rgba(0, 0, 242, 0.16);
+}
+.ol-page .vp-doc .ol-phase-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+.ol-page .vp-doc .ol-phase-n {
+  font-family: var(--hw-mono);
+  font-weight: 600;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--hermes-blue);
+}
+.ol-page .vp-doc .ol-phase-time {
+  font-family: var(--hw-mono);
+  font-weight: 400;
+  font-size: 11.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8a8a9a;
+}
+.ol-page .vp-doc .ol-phase-tag {
+  margin-top: 4px;
+  font-family: var(--hw-mono);
+  font-weight: 500;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--hermes-blue);
+  border: 1px solid rgba(0, 0, 242, 0.28);
+  padding: 4px 9px;
+}
+.ol-page .vp-doc .ol-phase-body h3 {
+  font-family: var(--hw-serif);
+  font-weight: 700;
+  font-size: 24px;
+  margin: 0 0 8px;
+  padding: 0;
+  border: none;
+  letter-spacing: -0.01em;
+  color: var(--hermes-ink);
+}
+.ol-page .vp-doc .ol-phase-body p {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: #4a4a5c;
+  margin: 0;
+  max-width: 60ch;
+}
+.ol-page .vp-doc .ol-phase-body a {
+  color: var(--hermes-blue);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 242, 0.35);
+  white-space: nowrap;
+}
+.ol-page .vp-doc .ol-deliver {
+  margin-top: 14px !important;
+  font-size: 14px !important;
+  color: var(--hermes-ink) !important;
+}
+.ol-page .vp-doc .ol-deliver span {
+  font-family: var(--hw-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #8a8a9a;
+  margin-right: 10px;
+}
+/* The two build phases carry a faint tint + solid blue rail so the
+   "shared build" and "your build" moments read as the day's spine. */
+.ol-page .vp-doc .ol-phase--mark {
+  background: rgba(0, 0, 242, 0.03);
+  border-top-color: var(--hermes-blue);
+}
+.ol-page .vp-doc .ol-phase--mark + .ol-phase--mark {
+  border-top-color: rgba(0, 0, 242, 0.2);
+}
+.ol-page .vp-doc .ol-phase--mark .ol-phase-meta {
+  padding-left: 26px;
+  border-left: 3px solid var(--hermes-blue);
+}
+.ol-page .vp-doc .ol-phase--mark .ol-phase-body {
+  padding-right: 26px;
+}
+
+/* ---- "You build twice" - two hairline cards ---- */
+.ol-page .vp-doc .ol-builds {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin: 36px 0 0;
+  border: 1px solid rgba(0, 0, 242, 0.16);
+}
+.ol-page .vp-doc .ol-build {
+  padding: 26px 28px;
+}
+.ol-page .vp-doc .ol-build + .ol-build {
+  border-left: 1px solid rgba(0, 0, 242, 0.16);
+}
+.ol-page .vp-doc .ol-build-label {
+  font-family: var(--hw-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--hermes-blue);
+  margin: 0 0 10px;
+}
+.ol-page .vp-doc .ol-build p:last-child {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4a4a5c;
+}
+
+/* ---- Tips: hairline list ---- */
+.ol-page .vp-doc .ol-tips {
+  list-style: none;
+  margin: 32px 0 0;
+  padding: 0;
+}
+.ol-page .vp-doc .ol-tips li {
+  position: relative;
+  padding: 14px 0 14px 26px;
+  border-top: 1px solid rgba(0, 0, 242, 0.1);
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--hermes-ink);
+}
+.ol-page .vp-doc .ol-tips li:first-child {
+  border-top: none;
+}
+.ol-page .vp-doc .ol-tips li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 22px;
+  width: 7px;
+  height: 7px;
+  background: var(--hermes-blue);
+}
+.ol-page .vp-doc .ol-tips a {
+  color: var(--hermes-blue);
+  font-weight: 600;
+}
+
+/* ---- Closing "after" callout - reuses the source-callout vocabulary ---- */
+.ol-page .vp-doc .ol-after {
+  margin: 36px 0 0;
+  border-left: 3px solid var(--hermes-blue);
+  background: rgba(0, 0, 242, 0.03);
+  padding: 16px 22px;
+}
+.ol-page .vp-doc .ol-after-label {
+  font-family: var(--hw-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--hermes-blue);
+  margin: 0 0 6px;
+}
+.ol-page .vp-doc .ol-after p:last-child {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--hermes-ink);
+}
+
+@media (max-width: 600px) {
+  .ol-page .vp-doc .ol-lead {
+    font-size: 18px;
+  }
+  .ol-page .vp-doc .ol-meta {
+    grid-template-columns: 1fr;
+  }
+  .ol-page .vp-doc .ol-meta > div {
+    padding: 15px 0;
+    border-top: 1px solid rgba(0, 0, 242, 0.1);
+  }
+  .ol-page .vp-doc .ol-meta > div:first-child {
+    border-top: none;
+  }
+  .ol-page .vp-doc .ol-meta > div + div {
+    border-left: none;
+    padding-left: 0;
+  }
+  .ol-page .vp-doc .ol-phase {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 24px 0;
+  }
+  .ol-page .vp-doc .ol-phase-meta {
+    flex-direction: row;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .ol-page .vp-doc .ol-phase-tag {
+    margin-top: 0;
+  }
+  /* Keep the marked-build rail on the meta row when stacked, and drop the
+     right inset so body copy still reaches the full column width. */
+  .ol-page .vp-doc .ol-phase--mark .ol-phase-meta {
+    padding-left: 0;
+    border-left: none;
+  }
+  .ol-page .vp-doc .ol-phase--mark {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: -20px;
+    margin-right: -20px;
+    border-left: 3px solid var(--hermes-blue);
+  }
+  .ol-page .vp-doc .ol-phase--mark .ol-phase-body {
+    padding-right: 0;
+  }
+  .ol-page .vp-doc .ol-builds {
+    grid-template-columns: 1fr;
+  }
+  .ol-page .vp-doc .ol-build + .ol-build {
+    border-left: none;
+    border-top: 1px solid rgba(0, 0, 242, 0.16);
+  }
+}
+
+/* ============================================================
+   HOMEPAGE (layout: page, pageClass: hw-page)
+   All styles scoped under .hw to protect other pages.
+   ============================================================ */
+
+.hw-page .VPPage,
+.hw-page.VPContent {
+  padding: 0;
+}
+.hw-page .VPPage {
+  margin: 0;
+}
+/* The marketing home page has no sidebar/outline; suppress the mobile
+   "Return to top" local-nav bar that VitePress injects from the global
+   sidebar config so it doesn't sit as stray docs chrome over the hero. */
+.hw-page .VPLocalNav {
+  display: none;
+}
+
+.hw {
+  font-family: var(--hw-sans);
+  color: var(--hermes-ink);
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.hw *,
+.hw *::before,
+.hw *::after {
+  box-sizing: border-box;
+}
+
+.hw-wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ---------- Shared type atoms ---------- */
+.hw-eyebrow {
+  font-family: var(--hw-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0 0 26px;
+}
+.hw-eyebrow--light {
+  color: rgba(255, 255, 255, 0.8);
+}
+.hw-kicker {
+  font-family: var(--hw-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--hermes-blue);
+  margin: 0 0 20px;
+}
+.hw-h2 {
+  font-family: var(--hw-serif);
+  font-weight: 700;
+  font-size: clamp(32px, 4.2vw, 54px);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  margin: 0;
+  max-width: 18ch;
+  color: var(--hermes-ink);
+  text-wrap: balance;
+}
+.hw-body {
+  margin: 22px 0 0;
+  max-width: 62ch;
+  font-size: clamp(16px, 1.15vw, 18px);
+  line-height: 1.65;
+  color: #40404f;
+}
+
+/* Two-column editorial section header: headline left, supporting copy right */
+.hw-section-head {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 56px;
+  align-items: end;
+}
+.hw-section-head-title {
+  min-width: 0;
+}
+.hw-section-head .hw-body {
+  margin: 0;
+  padding-bottom: 6px;
+}
+
+/* ---------- Buttons ---------- */
+.hw-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 36px;
+}
+.hw-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 54px;
+  padding: 0 28px;
+  font-family: var(--hw-mono);
+  font-weight: 500;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+  white-space: nowrap;
+}
+.hw-btn-solid {
+  background: #fff;
+  color: var(--hermes-blue);
+  border-color: #fff;
+}
+.hw-btn-solid:hover {
+  background: transparent;
+  color: #fff;
+}
+.hw-btn-ghost {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.55);
+}
+.hw-btn-ghost:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ---------- HERO ---------- */
+.hw-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--hermes-blue);
+  color: #fff;
+  padding: clamp(84px, 11vh, 132px) 40px clamp(76px, 10vh, 120px);
+}
+.hw-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(120% 80% at 78% 20%, rgba(255, 255, 255, 0.16), transparent 55%);
+}
+.hw-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 40px;
+  align-items: center;
+}
+.hw-hero-copy {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+}
+.hw-title {
+  font-family: var(--hw-serif);
+  font-weight: 800;
+  font-size: clamp(52px, 7.2vw, 108px);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: #fff;
+  text-wrap: balance;
+}
+.hw-title em {
+  font-style: italic;
+  font-weight: 500;
+}
+.hw-lead {
+  margin: 28px 0 0;
+  max-width: 34em;
+  font-size: clamp(17px, 1.3vw, 20px);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+.hw-terminal {
+  margin-top: 40px;
+  max-width: 580px;
+  min-width: 0;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.06);
+}
+.hw-terminal-label {
+  display: block;
+  font-family: var(--hw-mono);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 13px 18px 2px;
+}
+.hw-terminal code {
+  display: block;
+  font-family: var(--hw-mono);
+  font-size: 13.5px;
+  color: #fff;
+  padding: 6px 18px 15px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.hw-hero-art {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+.hw-hero-plate {
+  display: block;
+  width: 100%;
+  max-width: 580px;
+  margin-left: auto;
+}
+.hw-hero-art img {
+  display: block;
+  width: 100%;
+  filter: drop-shadow(0 22px 60px rgba(0, 0, 90, 0.55));
+}
+.hw-hero-cap {
+  display: block;
+  max-width: 580px;
+  margin: 16px 0 0 auto;
+  text-align: right;
+  font-family: var(--hw-mono);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ---------- Trust strip ---------- */
+.hw-trust {
+  background: #fff;
+  border-bottom: 1px solid rgba(0, 0, 242, 0.1);
+}
+.hw-trust-list {
+  list-style: none;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.hw-trust-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 34px 24px 0;
+  font-family: var(--hw-mono);
+  font-size: 12.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  color: #40404f;
+}
+.hw-trust-list li::before {
+  content: "";
+  flex: none;
+  width: 7px;
+  height: 7px;
+  background: var(--hermes-blue);
+}
+.hw-trust-list li + li {
+  border-left: 1px solid rgba(0, 0, 242, 0.1);
+  padding-left: 34px;
+}
+
+/* ---------- Generic section ---------- */
+.hw-section {
+  padding: clamp(72px, 9vh, 120px) 0;
+}
+.hw-section--white {
+  background: #fff;
+}
+.hw-section--paper {
+  background: var(--hermes-paper);
+  border-top: 1px solid rgba(0, 0, 242, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 242, 0.1);
+}
+
+/* ---------- Flow: 01–04 ---------- */
+.hw-flow {
+  list-style: none;
+  margin: 56px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid rgba(0, 0, 242, 0.16);
+}
+.hw-flow li {
+  padding: 30px 26px 6px 0;
+  border-right: 1px solid rgba(0, 0, 242, 0.1);
+}
+.hw-flow li:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+.hw-flow-n {
+  font-family: var(--hw-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--hermes-blue);
+}
+.hw-flow h3 {
+  font-family: var(--hw-serif);
+  font-size: 23px;
+  font-weight: 700;
+  margin: 16px 0 10px;
+  color: var(--hermes-ink);
+}
+.hw-flow p {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #56566a;
+  margin: 0;
+}
+
+/* ---------- Use-case cards ---------- */
+.hw-cards {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(0, 0, 242, 0.16);
+  border-left: 1px solid rgba(0, 0, 242, 0.16);
+}
+.hw-card {
+  padding: 34px 32px;
+  background: #fff;
+  border-right: 1px solid rgba(0, 0, 242, 0.16);
+  border-bottom: 1px solid rgba(0, 0, 242, 0.16);
+}
+.hw-card-n {
+  display: block;
+  font-family: var(--hw-serif);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--hermes-blue);
+  margin-bottom: 14px;
+}
+.hw-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4a4a5c;
+  margin: 0;
+}
+.hw-card--accent {
+  background: var(--hermes-blue);
+}
+.hw-card--accent .hw-card-n {
+  color: #fff;
+}
+.hw-card--accent p {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+/* ---------- Agenda timeline ---------- */
+.hw-timeline {
+  list-style: none;
+  margin: 56px 0 0;
+  padding: 0;
+}
+.hw-slot {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 36px;
+  padding: 28px 0;
+  border-top: 1px solid rgba(0, 0, 242, 0.16);
+}
+.hw-slot:last-child {
+  border-bottom: 1px solid rgba(0, 0, 242, 0.16);
+}
+.hw-slot-time {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-family: var(--hw-mono);
+  font-weight: 600;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--hermes-blue);
+}
+.hw-slot-time span {
+  font-weight: 400;
+  font-size: 11.5px;
+  letter-spacing: 0.16em;
+  color: #8a8a9a;
+}
+.hw-slot-body h3 {
+  font-family: var(--hw-serif);
+  font-weight: 700;
+  font-size: 24px;
+  margin: 0 0 7px;
+  color: var(--hermes-ink);
+}
+.hw-slot-body p {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: #4a4a5c;
+  margin: 0;
+}
+.hw-slot-body a {
+  color: var(--hermes-blue);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 242, 0.35);
+  white-space: nowrap;
+}
+
+/* ---------- Closing CTA band ---------- */
+.hw-cta {
+  background: var(--hermes-blue);
+  color: #fff;
+  padding: clamp(76px, 10vh, 130px) 0;
+  text-align: center;
+}
+.hw-cta .hw-wrap {
+  max-width: 900px;
+}
+.hw-cta .hw-eyebrow {
+  color: rgba(255, 255, 255, 0.8);
+}
+.hw-cta-title {
+  font-family: var(--hw-serif);
+  font-weight: 700;
+  font-size: clamp(30px, 4vw, 52px);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin: 0 auto;
+  max-width: 17ch;
+  color: #fff;
+  text-wrap: balance;
+}
+.hw-cta-lead {
+  margin: 24px auto 0;
+  max-width: 54ch;
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+.hw-cta .hw-actions {
+  justify-content: center;
+  margin-top: 38px;
+}
+.hw-links {
+  margin-top: 56px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+.hw-links a {
+  font-family: var(--hw-mono);
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+}
+.hw-links a:hover {
+  color: #fff;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 900px) {
+  .hw-section-head {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+  .hw-section-head .hw-body {
+    padding-bottom: 0;
+  }
+  .hw-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+  .hw-hero-plate {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  .hw-hero-cap {
+    max-width: 360px;
+    margin: 16px auto 0;
+    text-align: center;
+  }
+  .hw-trust-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .hw-flow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hw-flow li:nth-child(2n) {
+    border-right: none;
+    padding-right: 0;
+  }
+  .hw-flow li:nth-child(odd) {
+    padding-right: 26px;
+  }
+  .hw-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .hw-wrap {
+    padding: 0 22px;
+  }
+  .hw-hero {
+    padding: 64px 22px 56px;
+  }
+  /* Frame the engraving as an intentional plate so it reads as classical
+     art rather than a full-bleed field of halftone noise. */
+  .hw-hero-plate {
+    max-width: 264px;
+    padding: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.05);
+  }
+  .hw-hero-art img {
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 90, 0.4));
+  }
+  .hw-hero-cap {
+    max-width: 264px;
+  }
+  .hw-section {
+    padding: 66px 0;
+  }
+  .hw-trust-list {
+    grid-template-columns: 1fr;
+    padding: 0 22px;
+  }
+  .hw-trust-list li {
+    padding: 18px 0;
+    border-top: 1px solid rgba(0, 0, 242, 0.1);
+  }
+  .hw-trust-list li:first-child {
+    border-top: none;
+  }
+  .hw-trust-list li + li {
+    border-left: none;
+    padding-left: 0;
+  }
+  .hw-eyebrow,
+  .hw-kicker {
+    letter-spacing: 0.15em;
+    font-size: 11px;
+  }
+  .hw-flow,
+  .hw-cards {
+    grid-template-columns: 1fr;
+  }
+  .hw-flow li,
+  .hw-flow li:nth-child(odd) {
+    padding: 24px 0 6px;
+    border-right: none;
+  }
+  .hw-slot {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .hw-slot-time {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .hw-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hw-btn {
+    width: 100%;
+    white-space: normal;
+    letter-spacing: 0.08em;
+    padding: 0 14px;
+    font-size: 12px;
+  }
+  .hw-terminal {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 30px;
+  }
+  /* On narrow screens the install command can't fit on one line. Wrap it into
+     a complete, fully-visible block instead of a horizontally-scrolled snippet
+     that reads as cropped/unfinished. Full command also lives on /pre-work. */
+  .hw-terminal code {
+    white-space: normal;
+    overflow-x: visible;
+    overflow-wrap: anywhere;
+    line-height: 1.5;
+  }
+  /* Stack the footer links in a single centered column so the "Nous Research"
+     link and its "@NousResearch" handle never sit side-by-side in a 2-up row,
+     where the repeated word reads as a duplicate/typo rather than two links. */
+  .hw-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+}

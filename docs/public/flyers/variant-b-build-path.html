@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Build Your First Useful AI Agent - Hermes Workshop</title>
+  <style>
+    :root {
+      --blue: #0500ff;
+      --blue-deep: #0000c9;
+      --ink: #07070d;
+      --paper: #ffffff;
+      --soft: #eef1ff;
+      --muted: #4a4a60;
+      --orange: #f47421;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: #d9d9e6; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+    }
+    .sheet {
+      width: 8.5in;
+      height: 11in;
+      margin: 0 auto;
+      background: var(--paper);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 18px 60px rgba(0,0,0,.28);
+    }
+    .hero {
+      background: var(--blue);
+      color: var(--paper);
+      position: relative;
+      padding: 0.36in 0.48in 0.30in;
+      min-height: 3.05in;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -30% -20% auto 38%;
+      height: 4.8in;
+      background:
+        radial-gradient(circle at center, rgba(255,255,255,.19), rgba(255,255,255,0) 52%),
+        repeating-linear-gradient(112deg, rgba(255,255,255,.18) 0 2px, transparent 2px 22px);
+      opacity: .75;
+      transform: rotate(-2deg);
+    }
+    .host {
+      position: relative;
+      z-index: 2;
+      font-size: 13.5px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 850;
+      margin-bottom: .12in;
+    }
+    .event-type {
+      position: relative;
+      z-index: 2;
+      display: inline-block;
+      margin: 0 0 .13in;
+      padding: .055in .11in;
+      border: 2px solid rgba(255,255,255,.92);
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 900;
+      background: rgba(255,255,255,.08);
+    }
+    h1 {
+      position: relative;
+      z-index: 2;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 700;
+      font-size: 61px;
+      line-height: .88;
+      letter-spacing: -.052em;
+      margin: 0;
+      max-width: 5.9in;
+      text-wrap: balance;
+    }
+    .subhead {
+      position: relative;
+      z-index: 2;
+      max-width: 5.85in;
+      margin: .16in 0 0;
+      font-size: 20px;
+      line-height: 1.18;
+      font-weight: 700;
+    }
+    .badge {
+      position: absolute;
+      z-index: 1;
+      right: -.08in;
+      bottom: -.72in;
+      width: 1.72in;
+      height: 3.1in;
+      object-fit: contain;
+      opacity: .58;
+      mix-blend-mode: screen;
+      filter: contrast(112%);
+    }
+    .body-copy {
+      padding: .22in .48in .12in;
+      font-size: 22px;
+      line-height: 1.28;
+      font-weight: 750;
+      color: #111129;
+    }
+    .cards-wrap {
+      padding: 0 .48in .18in;
+    }
+    .cards-title {
+      display: flex;
+      align-items: center;
+      gap: .14in;
+      margin-bottom: .13in;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+    }
+    .cards-title::after { content: ""; height: 2px; flex: 1; background: var(--blue); }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: .15in;
+    }
+    .card {
+      min-height: 1.48in;
+      border: 3px solid var(--blue);
+      border-radius: 18px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.05in 1fr;
+      background: #fff;
+      box-shadow: 8px 8px 0 var(--blue);
+    }
+    .card-art {
+      background: var(--blue);
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+    .card-art img {
+      width: 148%;
+      height: 148%;
+      object-fit: cover;
+      object-position: center;
+      position: absolute;
+      left: -27%;
+      top: -25%;
+    }
+    .card:nth-child(2) .card-art img { object-position: 58% 50%; left: -22%; }
+    .card:nth-child(3) .card-art img { object-position: 47% 54%; left: -20%; top: -26%; }
+    .card:nth-child(4) .card-art img { object-position: 55% 46%; left: -24%; top: -24%; }
+    .card-text {
+      padding: .14in .15in .13in;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: .04in;
+    }
+    .step {
+      color: var(--blue);
+      font-size: 12.5px;
+      font-weight: 950;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .label {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      line-height: .95;
+      font-weight: 700;
+      letter-spacing: -.035em;
+    }
+    .caption {
+      color: #2e2e46;
+      font-size: 13.5px;
+      line-height: 1.18;
+      font-weight: 650;
+    }
+    .event-band {
+      margin: .02in .48in 0;
+      border-radius: 22px;
+      background: var(--ink);
+      color: var(--paper);
+      display: grid;
+      grid-template-columns: 1.04fr .96fr;
+      overflow: hidden;
+      border: 3px solid var(--ink);
+    }
+    .event-main { padding: .19in .22in; }
+    .event-date {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 28px;
+      line-height: 1.0;
+      font-weight: 700;
+      letter-spacing: -.03em;
+      margin-bottom: .06in;
+    }
+    .event-time, .event-place { font-size: 15px; line-height: 1.25; font-weight: 800; }
+    .utility {
+      background: var(--blue);
+      padding: .18in .20in;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: .06in;
+      font-size: 19px;
+      line-height: 1.08;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -.01em;
+    }
+    .bottom {
+      margin-top: auto;
+      padding: .16in .48in .30in;
+      display: grid;
+      grid-template-columns: 2.78in 1fr;
+      gap: .18in;
+      align-items: end;
+    }
+    .qr-card {
+      border: 3px solid var(--ink);
+      border-radius: 20px;
+      padding: .13in;
+      background: #fff;
+      display: grid;
+      grid-template-columns: 1.38in 1fr;
+      gap: .13in;
+      align-items: center;
+    }
+    .qr-card img { width: 1.38in; height: 1.38in; object-fit: contain; }
+    .scan { font-size: 13px; line-height: 1.18; font-weight: 850; color: var(--muted); }
+    .url {
+      display: block;
+      margin-top: .05in;
+      font-weight: 950;
+      color: var(--blue);
+      font-size: 16px;
+      letter-spacing: -.02em;
+      word-break: break-word;
+    }
+    .logo-strip {
+      background: #fff;
+      border: 3px solid var(--ink);
+      border-radius: 20px;
+      padding: .14in .17in;
+      min-height: 1.52in;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: .16in;
+      align-items: center;
+    }
+    .logo-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .06in;
+      min-width: 0;
+    }
+    .logo-block img { max-width: 100%; object-fit: contain; }
+    .aic-logo { width: .58in; height: .67in; }
+    .hermes-logo { width: .70in; height: .70in; border-radius: 12px; }
+    .plus { color: var(--blue); font-size: 24px; font-weight: 950; }
+    .logo-label { text-transform: uppercase; letter-spacing: .12em; font-size: 9px; font-weight: 950; color: #2e2e46; text-align: center; }
+    @page { size: Letter; margin: 0; }
+    @media print { html, body { background: #fff; } .sheet { box-shadow: none; } }
+  </style>
+</head>
+<body>
+  <main class="sheet" role="img" aria-label="Flyer for Hermes Agent hands-on workshop on Saturday, July 18 from 1:00 PM to 5:00 PM EDT at Business Development Center, 100 Cherokee Boulevard, Chattanooga.">
+    <section class="hero">
+      <div class="host">AI Collective, Chattanooga presents</div>
+      <div class="event-type">4-hour hands-on build session</div>
+      <h1>BUILD YOUR FIRST<br>USEFUL AI AGENT</h1>
+      <p class="subhead">A hands-on Hermes workshop for people who want AI to actually do useful work.</p>
+      <img class="badge" src="../assets/hermes-official/badge.webp" alt="Official Hermes badge artwork" />
+    </section>
+
+    <p class="body-copy">In one afternoon: install Hermes, connect a model, set up messaging, and start a personal agent you can keep improving.</p>
+
+    <section class="cards-wrap" aria-label="Workshop build path">
+      <div class="cards-title">What you’ll build through</div>
+      <div class="cards">
+        <article class="card">
+          <div class="card-art"><img src="../assets/hermes-official/feature-connect.webp" alt="Official Hermes connect feature artwork" /></div>
+          <div class="card-text"><div class="step">Step 01</div><div class="label">Connect</div><div class="caption">Install Hermes and connect a model so your agent can start working.</div></div>
+        </article>
+        <article class="card">
+          <div class="card-art"><img src="../assets/hermes-official/feature-memory.webp" alt="Official Hermes memory feature artwork" /></div>
+          <div class="card-text"><div class="step">Step 02</div><div class="label">Remember</div><div class="caption">Give your assistant durable context and reusable skills.</div></div>
+        </article>
+        <article class="card">
+          <div class="card-art"><img src="../assets/hermes-official/feature-automation.webp" alt="Official Hermes automation feature artwork" /></div>
+          <div class="card-text"><div class="step">Step 03</div><div class="label">Schedule</div><div class="caption">Wire up practical automation and recurring useful tasks.</div></div>
+        </article>
+        <article class="card">
+          <div class="card-art"><img src="../assets/hermes-official/feature-tasks.webp" alt="Official Hermes tasks feature artwork" /></div>
+          <div class="card-text"><div class="step">Step 04</div><div class="label">Delegate</div><div class="caption">Bootstrap a personal agent you can keep improving after the workshop.</div></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="event-band">
+      <div class="event-main">
+        <div class="event-date">Saturday, July 18</div>
+        <div class="event-time">1:00 PM–5:00 PM EDT</div>
+        <div class="event-place">Business Development Center<br>100 Cherokee Blvd., Chattanooga</div>
+      </div>
+      <div class="utility"><span>Food included.</span><span>Bring a laptop.</span></div>
+    </section>
+
+    <footer class="bottom">
+      <div class="qr-card">
+        <img src="../assets/flyer/luma-aic-ch-7-18-qr.png" alt="QR code for registration" />
+        <div class="scan">Scan to register<span class="url">luma.com/aic-ch-7-18</span></div>
+      </div>
+      <div class="logo-strip" aria-label="AI Collective and Hermes logos">
+        <div class="logo-block"><img class="aic-logo" src="../assets/flyer/ai-collective-logo.png" alt="AI Collective logo" /><div class="logo-label">AI Collective</div></div>
+        <div class="plus">×</div>
+        <div class="logo-block"><img class="hermes-logo" src="../assets/hermes-logo.jpeg" alt="Hermes logo" /><div class="logo-label">Hermes Agent</div></div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>

@@ -2,30 +2,6 @@
 
 Build an agent that does something useful for you and live where you work. From 0 -> 1. This workshop is for you if you've never built an agent or if you've built dozens and want to learn how Hermes makes it easier than ever.
 
-## Static Workshop Site
-
-The MVP public site is built with VitePress from Markdown in [`docs/`](docs/).
-Target domain: `hermes.arcadian.cloud`.
-
-Run it locally:
-
-```bash
-npm install
-npm run docs:dev
-```
-
-Build and preview the static output:
-
-```bash
-npm run docs:build
-npm run docs:preview
-```
-
-GitHub Pages deployment is defined in [`.github/workflows/pages.yml`](.github/workflows/pages.yml).
-The custom domain is recorded in [`docs/public/CNAME`](docs/public/CNAME);
-DNS still needs to point `hermes.arcadian.cloud` at GitHub Pages when the repo is
-ready to publish.
-
 ## What we'll cover
 
 ### Part 1) Art of the Possible
@@ -342,3 +318,29 @@ not require production access.
 
 - [Hermes docs](https://hermes-agent.nousresearch.com/docs)
 - [Hermes overview on X](https://x.com/i/status/2066885278451519590)
+
+---
+
+## Static Workshop Site
+
+The MVP public site is built with VitePress from Markdown in [`docs/`](docs/).
+Target domain: `hermes.arcadian.cloud`.
+
+Run it locally:
+
+```bash
+npm install
+npm run docs:dev
+```
+
+Build and preview the static output:
+
+```bash
+npm run docs:build
+npm run docs:preview
+```
+
+GitHub Pages deployment is defined in [`.github/workflows/pages.yml`](.github/workflows/pages.yml).
+The custom domain is recorded in [`docs/public/CNAME`](docs/public/CNAME);
+DNS still needs to point `hermes.arcadian.cloud` at GitHub Pages when the repo is
+ready to publish.

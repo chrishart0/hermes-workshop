@@ -23,7 +23,7 @@ description: A hands-on, 4-hour workshop to build your first useful AI agent wit
       </p>
       <div class="hw-actions">
         <a class="hw-btn hw-btn-solid" href="/pre-work">Start the pre-work</a>
-        <a class="hw-btn hw-btn-ghost" href="#agenda">See the 4-hour agenda</a>
+        <a class="hw-btn hw-btn-ghost" href="#agenda">Agenda</a>
       </div>
       <div class="hw-terminal">
         <span class="hw-terminal-label">Step one - install hermes</span>
@@ -34,16 +34,16 @@ description: A hands-on, 4-hour workshop to build your first useful AI agent wit
       <span class="hw-hero-plate">
         <img src="/assets/hermes-official/hero-light.webp" alt="Classical engraving of Hermes in radiant line art" loading="eager" />
       </span>
-      <figcaption class="hw-hero-cap">Hermes - classical engraving · Nous Research</figcaption>
+      <figcaption class="hw-hero-cap">Hermes · Nous Research</figcaption>
     </figure>
   </div>
 </section>
 
 <section class="hw-trust" aria-label="Workshop at a glance">
   <ul class="hw-trust-list">
-    <li>Christian's third Hermes workshop</li>
-    <li>Hands-on - you build, we help</li>
-    <li>You leave with a working agent</li>
+    <li>What is an agent</li>
+    <li>Why make an agent</li>
+    <li>How to make your own agent</li>
   </ul>
 </section>
 
@@ -97,28 +97,32 @@ description: A hands-on, 4-hour workshop to build your first useful AI agent wit
     </div>
     <div class="hw-cards">
       <article class="hw-card">
-        <span class="hw-card-n">Daily intelligence</span>
-        <p>A morning briefing over news, releases, CVEs, newsletters, events, or metrics - filtered to what's relevant to you.</p>
+        <span class="hw-card-n">Self improving regular briefings</span>
+        <p>Read newsletters, websites, events, releases, or updates and summarize only what matters.</p>
       </article>
       <article class="hw-card">
-        <span class="hw-card-n">Homelab &amp; ops health</span>
-        <p>A watch agent that summarizes services, logs, disk, memory, and container status into a plain-language status post.</p>
+        <span class="hw-card-n">Alert triage and resolution</span>
+        <p>Automatically evaluate inbound issues, even automate resolution or escalation.</p>
       </article>
       <article class="hw-card">
-        <span class="hw-card-n">Incident triage</span>
-        <p>Turn raw alerts and webhook payloads into a human-readable summary with likely causes and next steps.</p>
+        <span class="hw-card-n">Research tracking</span>
+        <p>Watch a topic, grant, policy, market, company, competitor, or project and report meaningful changes.</p>
       </article>
       <article class="hw-card">
-        <span class="hw-card-n">Release &amp; CVE watch</span>
-        <p>Track the tools, dependencies, and advisories you rely on, and get pinged only when something changes.</p>
+        <span class="hw-card-n">Operations health</span>
+        <p>Inspect systems, dashboards, services, or recurring checks and report only what needs attention.</p>
       </article>
       <article class="hw-card">
-        <span class="hw-card-n">ChatOps over local data</span>
-        <p>Ask questions against approved local docs, CSV files, SQLite databases, and logs - answered where your team works.</p>
+        <span class="hw-card-n">Personal admin</span>
+        <p>Help track, manage, and schedule your events, appointments, renewals, reminders, purchases, travel, or recurring chores.</p>
+      </article>
+      <article class="hw-card">
+        <span class="hw-card-n">Virtual employee</span>
+        <p>Train your agent to manage specific knowledge work tasks with browser and computer use automation.</p>
       </article>
       <article class="hw-card hw-card--accent">
-        <span class="hw-card-n">Your own workflow</span>
-        <p>Bring a repetitive task from your week. In the build lab we'll help you shape it into an agent that runs it for you.</p>
+        <span class="hw-card-n">And more</span>
+        <p>Bring a task from your work or life. In the build lab we'll help you shape it into an agent that runs it for you.</p>
       </article>
     </div>
   </div>

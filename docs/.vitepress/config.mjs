@@ -69,8 +69,7 @@ export default defineConfig({
       provider: "local"
     },
     footer: {
-      message: "Built for the Hermes Agent workshop.",
-      copyright: "Powered by VitePress and Hermes."
+      message: "Built for the Hermes Agent workshop by a Hermes Agent.",
     }
   }
 });

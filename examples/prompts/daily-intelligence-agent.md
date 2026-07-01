@@ -36,7 +36,7 @@ The bootstrap replaces it with *yours*.
 Set up my Daily Intelligence Report skill.
 
 1. Fetch this skill template with curl:
-   https://raw.githubusercontent.com/chrishart0/linuxfest-hermes-workshop/main/examples/skills/daily-intelligence-report/SKILL.md
+   https://raw.githubusercontent.com/chrishart0/hermes-workshop/master/examples/skills/daily-intelligence-report/SKILL.md
 2. Install it as a new skill named daily-intelligence-report in your own skills
    directory, using your skill management tooling. Do not hardcode paths.
 3. The template is not customized yet. Follow its "Bootstrap" section exactly:

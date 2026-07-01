@@ -12,7 +12,7 @@ description: A practical, LinuxFest workshop for building a Daily Intelligence A
 SPEAKER NOTE (deck-wide):
 45-minute slot, Saturday 10:00 AM. Audience is terminal-first, open-source, self-hosting.
 Lead with respect for their existing skills. The agent is a new tool on the shelf next to
-cron, ssh, and grep — not a replacement for thinking. Demos carry the talk; slides are scaffolding.
+cron, ssh, and grep - not a replacement for thinking. Demos carry the talk; slides are scaffolding.
 -->
 
 <style>
@@ -319,7 +319,7 @@ This is the strongest emotional proof. Tell the live release story: the agent su
 <div class="kicker">8:03 AM · team Discord · #reports</div>
 
 > $xxxx gross on 123 orders. Biggest movement: gross down 5% vs yesterday
-> even though orders were up — AOV slipped. Refund flow down 2%.
+> even though orders were up - AOV slipped. Refund flow down 2%.
 
 <div class="kicker">8:10 PM  · team Discord · #reports</div>
 
@@ -345,7 +345,7 @@ This is the strongest emotional proof. Tell the live release story: the agent su
 
 <!--
 All three facts came from interviewing Ana herself, who pulled them from session history.
-This is the bridge slide — land the closing line hard: nobody in this room is 23 skills away from value; they are one evening away.
+This is the bridge slide - land the closing line hard: nobody in this room is 23 skills away from value; they are one evening away.
 
 -->
 
@@ -367,11 +367,11 @@ This is the bridge slide — land the closing line hard: nobody in this room is 
 </div>
 
 <!--
-You've already seen all four running — that's Ana.
+You've already seen all four running - that's Ana.
 
 Keep this four-line model intact everywhere. It is still the portable Hermes frame.
 Connect it back to today's build: we start with a skill; cron/gateway are stretch layers.
-Callback: Ana is all four lines at full size — memory = the business definitions and pitfalls, skills = her 23 custom workflows, cron = her 8 scheduled reports, gateway = Discord where the team lives.
+Callback: Ana is all four lines at full size - memory = the business definitions and pitfalls, skills = her 23 custom workflows, cron = her 8 scheduled reports, gateway = Discord where the team lives.
 -->
 
 --- 

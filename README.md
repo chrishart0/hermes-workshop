@@ -1,6 +1,6 @@
 # Building Practical Agents with Hermes Workshop
 
-Build an agent that does something useful for you and live where you work. From 0 -> 1. This workshop is for you if you've never built an agent or if you've built dozens and want to learn how Hermes makes it easier than ever.
+Build an agent that does something useful for you and lives where you work. From 0 to 1. This workshop is for you if you've never built an agent, or if you've built dozens and want to see how Hermes makes it easier.
 
 ## What we'll cover
 
@@ -17,7 +17,7 @@ Build an agent that does something useful for you and live where you work. From 
 ### Part 3) Make Your Agent Maximally Useful for You
 - **Build your agent** - pick a use case, bootstrap a skill, run your first report
 - **Feedback loop** - teach your skill to get sharper with every run
-- **Scheudle and delivery** - Run your agent on a schedule, have it message you where you already work
+- **Schedule and delivery** - run your agent on a schedule, have it message you where you already work
 
 ## What you'll leave with
 
@@ -340,7 +340,22 @@ npm run docs:build
 npm run docs:preview
 ```
 
-GitHub Pages deployment is defined in [`.github/workflows/pages.yml`](.github/workflows/pages.yml).
-The custom domain is recorded in [`docs/public/CNAME`](docs/public/CNAME);
-DNS still needs to point `hermes.arcadian.cloud` at GitHub Pages when the repo is
-ready to publish.
+Deploy with Vercel from the repository root:
+
+```bash
+vercel --prod
+```
+
+This repo is configured with [`vercel.json`](vercel.json): Vercel runs
+`npm run docs:build` and publishes `docs/.vitepress/dist`. The local Vercel
+project link lives in `.vercel/`, which is intentionally gitignored. If you are
+on a fresh machine and `vercel` says the project is not linked, run:
+
+```bash
+vercel link
+```
+
+and choose the existing project that serves `hermes.arcadian.cloud`.
+
+GitHub Pages deployment also exists in [`.github/workflows/pages.yml`](.github/workflows/pages.yml),
+but Vercel is the current direct deployment path for `hermes.arcadian.cloud`.

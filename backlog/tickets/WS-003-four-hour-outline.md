@@ -14,7 +14,7 @@ Create a clear outline for the new 4-hour version of the workshop.
 
 ## Scope
 
-- Add `docs/four-hour-workshop-outline.md`.
+- Add `docs/full-workshop-outline.md`.
 - Preserve the opening slides/art-of-possible section instead of cutting it.
 - Make the Daily Intelligence Agent the shared baseline build, not the whole workshop.
 - Add a custom build lab where attendees build their own agent.

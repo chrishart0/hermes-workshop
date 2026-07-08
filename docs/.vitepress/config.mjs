@@ -40,7 +40,9 @@ export default defineConfig({
     nav: [
       { text: "Overview", link: "/" },
       { text: "Pre-work", link: "/pre-work" },
-      { text: "Guide", link: "https://github.com/chrishart0/linuxfest-hermes-workshop" },
+      { text: "Use cases", link: "/use-cases" },
+      { text: "Outline", link: "/full-workshop-outline" },
+      { text: "Register", link: "https://luma.com/aic-ch-7-18" },
       { text: "Hermes Docs", link: "https://hermes-agent.nousresearch.com/docs" }
     ],
     sidebar: [
@@ -49,15 +51,8 @@ export default defineConfig({
         items: [
           { text: "Overview", link: "/" },
           { text: "Pre-work Setup", link: "/pre-work" },
-          { text: "Four-Hour Outline", link: "/four-hour-workshop-outline" },
-          { text: "Presenter Guide", link: "/presenter-guide" }
-        ]
-      },
-      {
-        text: "Source Material",
-        items: [
-          { text: "Agenda Notes", link: "/agenda" },
-          { text: "Workshop Objective", link: "/workshop-objective" }
+          { text: "Use Case Library", link: "/use-cases" },
+          { text: "Full Workshop Outline", link: "/full-workshop-outline" }
         ]
       }
     ],
@@ -65,11 +60,9 @@ export default defineConfig({
       { icon: "github", link: "https://github.com/NousResearch/hermes-agent" },
       { icon: "x", link: "https://x.com/NousResearch" }
     ],
-    search: {
-      provider: "local"
-    },
+    search: false,
     footer: {
-      message: "Built for the Hermes Agent workshop by a Hermes Agent.",
+      message: "Built by human and Hermes Agent collaboration.",
     }
   }
 });

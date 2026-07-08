@@ -1,5 +1,5 @@
 {
-  "name": "linuxfest-hermes-workshop",
+  "name": "hermes-workshop",
   "private": true,
   "type": "module",
   "scripts": {

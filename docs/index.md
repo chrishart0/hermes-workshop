@@ -33,7 +33,7 @@ description: A hands-on, 4-hour workshop to build your first useful AI agent wit
     </div>
     <figure class="hw-hero-art" aria-hidden="true">
       <span class="hw-hero-plate">
-        <img src="/assets/hermes-official/hero-light.webp" alt="Classical engraving of Hermes in radiant line art" loading="eager" />
+        <img src="/assets/hermes-official/hero-art.webp" alt="Classical engraving of Hermes in radiant line art" loading="eager" />
       </span>
       <figcaption class="hw-hero-cap">Hermes · Nous Research</figcaption>
     </figure>

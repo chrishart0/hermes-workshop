@@ -386,7 +386,7 @@ github.com/chrishart0/hermes-workshop/
 ✅ Install Hermes
 ✅ Configure Hermes with a model
 ✅ Test Hermes, say hi
-✅ Follow `examples/prompts/daily-intelligence-agent.md` to setup your agent
+✅ Follow `docs/use-cases/daily-intelligence-agent.md` to setup your agent
 
 ### Stretch Goal
 

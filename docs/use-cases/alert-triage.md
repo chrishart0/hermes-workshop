@@ -1,3 +1,18 @@
+---
+title: Incident Triage Agent
+description: Turn raw monitoring alerts into clear on-call triage without letting the agent remediate.
+pageClass: uc-page
+audience: technical
+tags:
+  - alerts
+  - webhooks
+  - operations
+  - setup-guide
+difficulty: intermediate
+safety: decision-support
+guide_status: setup-guide
+---
+
 # WIP: Incident Triage Agent
 
 *WIP: This is untested*

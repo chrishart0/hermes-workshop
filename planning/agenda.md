@@ -16,8 +16,8 @@ Detailed material lives elsewhere:
 
 - Objective / positioning: [`docs/workshop-objective.md`](workshop-objective.md)
 - Attendee activity: [`README.md`](../README.md) (the workshop guide is the README)
-- Default project prompt: [`examples/prompts/daily-intelligence-agent.md`](../examples/prompts/daily-intelligence-agent.md)
-- Alternative paths: [`examples/prompts/homelab-health.md`](../examples/prompts/homelab-health.md), [`examples/prompts/alert-triage.md`](../examples/prompts/alert-triage.md), [`examples/prompts/chatops-data.md`](../examples/prompts/chatops-data.md)
+- Default project prompt: [`docs/use-cases/daily-intelligence-agent.md`](../docs/use-cases/daily-intelligence-agent.md)
+- Alternative paths: [`docs/use-cases/homelab-health.md`](../docs/use-cases/homelab-health.md), [`docs/use-cases/alert-triage.md`](../docs/use-cases/alert-triage.md), [`docs/use-cases/chatops-data.md`](../docs/use-cases/chatops-data.md)
 - Template skill: [`examples/skills/daily-intelligence-report/SKILL.md`](../examples/skills/daily-intelligence-report/SKILL.md)
 
 ## Definition of done
@@ -209,7 +209,7 @@ chosen path, not just the default.
 
 Open the default project prompt and bootstrap it together:
 
-[`examples/prompts/daily-intelligence-agent.md`](../examples/prompts/daily-intelligence-agent.md)
+[`docs/use-cases/daily-intelligence-agent.md`](../docs/use-cases/daily-intelligence-agent.md)
 
 That prompt points to the template skill:
 
@@ -240,9 +240,9 @@ catch up. This is the most important part of the session - protect it.
 
 Alternative path guides live here:
 
-- [`examples/prompts/homelab-health.md`](../examples/prompts/homelab-health.md)
-- [`examples/prompts/alert-triage.md`](../examples/prompts/alert-triage.md)
-- [`examples/prompts/chatops-data.md`](../examples/prompts/chatops-data.md)
+- [`docs/use-cases/homelab-health.md`](../docs/use-cases/homelab-health.md)
+- [`docs/use-cases/alert-triage.md`](../docs/use-cases/alert-triage.md)
+- [`docs/use-cases/chatops-data.md`](../docs/use-cases/chatops-data.md)
 
 #### 10. Improve once with feedback (5 min)
 

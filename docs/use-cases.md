@@ -52,13 +52,13 @@ tags:
 <a class="uc-row" href="/use-cases/daily-intelligence-agent" data-guide="setup-guide" data-audience="general personal" data-tags="briefing research personal setup-guide beginner read-only">
 <span class="uc-entry"><strong>Daily Intelligence Agent</strong><span class="uc-tags">setup-guide · general · beginner</span></span><em>Recurring briefings over sources you already check.</em>
 </a>
-<a class="uc-row" href="/use-cases/homelab-production-health" data-guide="setup-guide" data-audience="technical" data-tags="sysadmin operations monitoring setup-guide intermediate read-only">
+<a class="uc-row" href="/use-cases/homelab-health" data-guide="setup-guide" data-audience="technical" data-tags="sysadmin operations monitoring setup-guide intermediate read-only">
 <span class="uc-entry"><strong>Homelab or Production Health Agent</strong><span class="uc-tags">setup-guide · technical · intermediate</span></span><em>Read-only triage for systems, services, logs, containers, and backups.</em>
 </a>
-<a class="uc-row" href="/use-cases/incident-triage" data-guide="setup-guide" data-audience="technical" data-tags="alerts webhooks operations setup-guide intermediate decision-support">
+<a class="uc-row" href="/use-cases/alert-triage" data-guide="setup-guide" data-audience="technical" data-tags="alerts webhooks operations setup-guide intermediate decision-support">
 <span class="uc-entry"><strong>Incident Triage Agent</strong><span class="uc-tags">setup-guide · technical · intermediate</span></span><em>Turn monitoring webhooks into clear on-call triage.</em>
 </a>
-<a class="uc-row" href="/use-cases/chatops-over-data" data-guide="setup-guide" data-audience="professional" data-tags="data chatops local-files setup-guide intermediate read-only">
+<a class="uc-row" href="/use-cases/chatops-data" data-guide="setup-guide" data-audience="professional" data-tags="data chatops local-files setup-guide intermediate read-only">
 <span class="uc-entry"><strong>ChatOps Over Your Data</strong><span class="uc-tags">setup-guide · professional · intermediate</span></span><em>Ask plain-language questions over CSVs, SQLite, logs, and docs.</em>
 </a>
 <a class="uc-row" href="/use-cases/business-kpi-report" data-guide="idea-only" data-audience="manager-founder" data-tags="business metrics founder idea-only intermediate read-only">

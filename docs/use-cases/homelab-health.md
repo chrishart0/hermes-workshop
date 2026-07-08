@@ -1,3 +1,18 @@
+---
+title: Homelab or Production Health Agent
+description: Inspect systems, services, logs, containers, and backups, then report what needs attention.
+pageClass: uc-page
+audience: technical
+tags:
+  - sysadmin
+  - operations
+  - monitoring
+  - setup-guide
+difficulty: intermediate
+safety: read-only
+guide_status: setup-guide
+---
+
 # WIP: Homelab / Production Health Agent
 
 *WIP: This is untested*

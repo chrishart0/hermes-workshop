@@ -1,3 +1,18 @@
+---
+title: ChatOps Over Your Data
+description: Ask plain-language questions over local CSVs, SQLite databases, logs, and docs.
+pageClass: uc-page
+audience: professional
+tags:
+  - data
+  - chatops
+  - local-files
+  - setup-guide
+difficulty: intermediate
+safety: read-only
+guide_status: setup-guide
+---
+
 # WIP: ChatOps Over Your Data
 
 *WIP: This is untested*

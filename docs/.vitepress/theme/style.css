@@ -71,6 +71,69 @@
   border-color: var(--hermes-blue);
 }
 
+/* ---- Workshop guide path picker ---- */
+.vp-doc .path-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 24px 0 0;
+}
+
+.vp-doc .path-choice-card {
+  display: block;
+  border: 1px solid rgba(0, 0, 242, 0.2);
+  background: #fff;
+  padding: 20px;
+  color: var(--hermes-ink);
+  text-decoration: none;
+  transition: border-color 0.14s ease, background 0.14s ease, transform 0.14s ease;
+}
+
+.vp-doc .path-choice-card:hover {
+  border-color: var(--hermes-blue);
+  background: rgba(0, 0, 242, 0.03);
+  transform: translateY(-1px);
+}
+
+.vp-doc .path-choice-card--default {
+  border-color: var(--hermes-blue);
+  box-shadow: inset 4px 0 0 var(--hermes-blue);
+}
+
+.vp-doc .path-choice-badge {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-family: var(--hw-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--hermes-blue);
+}
+
+.vp-doc .path-choice-card strong {
+  display: block;
+  font-family: var(--hw-serif);
+  font-size: 21px;
+  line-height: 1.15;
+  color: var(--hermes-ink);
+}
+
+.vp-doc .path-choice-card em {
+  display: block;
+  margin-top: 9px;
+  font-size: 14px;
+  line-height: 1.5;
+  font-style: normal;
+  color: #56566a;
+}
+
+@media (max-width: 700px) {
+  .vp-doc .path-choice-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Long shell one-liners must never crop on phones. Wrap them into a fully
    visible block (the copy button still copies the whole command) instead of
    a horizontally-scrolled snippet that reads as cut off. */

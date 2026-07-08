@@ -1,6 +1,7 @@
 import { defineConfig } from "vitepress";
+import { withMermaid } from "vitepress-plugin-mermaid";
 
-export default defineConfig({
+export default withMermaid(defineConfig({
   lang: "en-US",
   title: "Hermes Agent Workshop",
   description: "Build a practical AI agent with Hermes in one workshop.",
@@ -39,6 +40,7 @@ export default defineConfig({
     siteTitle: "Hermes Agent Workshop",
     nav: [
       { text: "Overview", link: "/" },
+      { text: "Guide", link: "/guide" },
       { text: "Pre-work", link: "/pre-work" },
       { text: "Use cases", link: "/use-cases" },
       { text: "Outline", link: "/full-workshop-outline" },
@@ -50,6 +52,7 @@ export default defineConfig({
         text: "Workshop",
         items: [
           { text: "Overview", link: "/" },
+          { text: "Workshop Guide", link: "/guide" },
           { text: "Pre-work Setup", link: "/pre-work" },
           { text: "Use Case Library", link: "/use-cases" },
           { text: "Full Workshop Outline", link: "/full-workshop-outline" }
@@ -65,4 +68,4 @@ export default defineConfig({
       message: "Built by human and Hermes Agent collaboration.",
     }
   }
-});
+}));

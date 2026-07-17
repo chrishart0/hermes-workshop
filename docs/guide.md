@@ -26,11 +26,10 @@ flowchart LR
 Start by making sure you have one working LLM ready to power your agent.
 
 ::: details Free LLM Inference API Keys
-dsafsaf
 
 ### True-free path: NVIDIA Build
 
-If you need a no-card, no-credit-card path, use NVIDIA Build:
+If you need a no-credit-card path, use NVIDIA Build:
 <https://build.nvidia.com/models>.
 
 Create an NVIDIA API key, then configure Hermes as an OpenAI-compatible custom
@@ -41,7 +40,7 @@ Base URL: https://integrate.api.nvidia.com/v1
 Model: nvidia/nemotron-3-ultra-550b-a55b
 ```
 
-NVIDIA Build is the best true-free workshop path because it usually gives more room to experiment than OpenRouter's no-credit-card free tier. The tradeoff: NVIDIA's free limits are not guaranteed and can vary by model and traffic.
+NVIDIA Build is the best true-free path because it usually gives more room to experiment than OpenRouter's no-credit-card free tier. The tradeoff: NVIDIA's free limits are not guaranteed and can vary by model and traffic.
 
 ### Most reliable free-model path: OpenRouter with $10 credit
 
@@ -90,14 +89,8 @@ curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 
 
 ### Setup Guide
-1) Choose **full setup**, the Nous Portal quick setup will require a credit card
-2) Model provider: **Custom / OpenAI-compatible endpoint** for NVIDIA Build if you don't have another subscription
-3) Base URL: `https://integrate.api.nvidia.com/v1`
-4) Model: `nvidia/nemotron-3-ultra-550b-a55b`
-5) Terminal backend: local
-6) Platform: skip set up gateway now - we'll do this together later in the session
-7) Tools: use the default set
-8) Browser provider: local
+
+
 
 ::: details Optional: Safer Terminal Backends
 
@@ -181,6 +174,16 @@ Choose one use case to build next. If you are unsure, start with the default pat
     <span class="path-choice-badge">Default path</span>
     <strong>Daily Intelligence Agent</strong>
     <em>Morning reports over the sources you already check, ranked by what matters to you.</em>
+  </a>
+  <a class="path-choice-card" href="/use-cases/competitor-market-watch">
+    <span class="path-choice-badge">Business</span>
+    <strong>Competitor and Market Watch</strong>
+    <em>Watch competitor sites, pricing, launches, and news; get what changed and why it matters.</em>
+  </a>
+  <a class="path-choice-card" href="/use-cases/sales-pipeline-followup">
+    <span class="path-choice-badge">Business</span>
+    <strong>Sales Pipeline Follow-up</strong>
+    <em>Turn a CRM or pipeline export into a ranked action list and draft follow-ups.</em>
   </a>
   <a class="path-choice-card" href="/use-cases/homelab-health">
     <span class="path-choice-badge">Technical</span>

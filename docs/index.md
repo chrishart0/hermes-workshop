@@ -118,6 +118,8 @@ description: A hands-on, 4-hour workshop to build your first useful AI agent wit
     </div>
     <div class="hw-cards">
       <article class="hw-card"><span class="hw-card-n">Daily briefings</span><p>Read newsletters, websites, events, releases, or updates and summarize only what matters.</p></article>
+      <article class="hw-card"><span class="hw-card-n">Competitor and market watch</span><p>Track competitor pricing, launches, and market signals, then get a short brief on what changed.</p></article>
+      <article class="hw-card"><span class="hw-card-n">Sales pipeline follow-up</span><p>Turn a CRM or pipeline export into a ranked action list and draft follow-ups for you to send.</p></article>
       <article class="hw-card"><span class="hw-card-n">Alert triage</span><p>Evaluate inbound alerts and issues, then summarize, escalate, or resolve the routine ones.</p></article>
       <article class="hw-card"><span class="hw-card-n">Research tracking</span><p>Watch a topic, grant, policy, market, company, competitor, or project and report meaningful changes.</p></article>
       <article class="hw-card"><span class="hw-card-n">Operations health</span><p>Inspect systems, dashboards, services, or recurring checks and report only what needs attention.</p></article>

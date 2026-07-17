@@ -1,83 +1,128 @@
 ---
-title: ChatOps Over Your Data
-description: Ask plain-language questions over local CSVs, SQLite databases, logs, and docs.
+title: Chat Over Your Data
+description: Connect Hermes to business data and ask questions in plain language.
 pageClass: uc-page
 audience: professional
 tags:
   - data
-  - chatops
-  - local-files
+  - analytics
+  - sql
   - setup-guide
 difficulty: intermediate
 safety: read-only
 guide_status: setup-guide
 ---
 
-# WIP: ChatOps Over Your Data
+# Chat Over Your Data
 
-*WIP: This is untested*
-
-
-An alternative workshop path. Unlike the [default path](daily-intelligence-agent.md),
-this one is a pattern you drive yourself, not a script we walk through together.
-
-**Watches:** your local data - CSV files, a SQLite database, markdown docs, log files.
-**Delivers:** plain-language answers to your questions, backed by the actual data and
-the query it ran.
-**Posture:** read-only. It queries and summarizes; it never writes to your data.
-
-The goal is to automate the *asking* - the part where you'd otherwise hand-write a
-`SELECT`, grep a CSV, or scroll a log to answer a one-off question.
+Connect Hermes to the systems that already hold your data, then ask business questions in
+plain language. Hermes finds the right source, runs the query, checks the result, and explains
+what it means.
 
 ```mermaid
 flowchart LR
-    Q["your question<br/>terminal or chat"] --> A(["Hermes"])
-    D[("local data<br/>SQLite · CSV<br/>logs · docs")] -- "read-only queries" --> A
-    A --> X["answer<br/>+ the query it ran"]
+    Q["your question"] --> A(["Hermes"])
+    SQL[("SQL database<br/>transactions · customers")] --> A
+    AN["analytics service<br/>events · funnels · behavior"] --> A
+    DOC["business docs<br/>definitions · rules"] --> A
+    A --> R["answer<br/>+ evidence<br/>+ recommendation"]
 ```
 
-## Build it: the four ingredients
+## The general pattern
 
-Point Hermes at one dataset and ask real questions. Frame the session in your own words,
-with four parts:
+### 1. Connect the sources
 
-1. **Name the data.** Path and shape: "`./data/sales.sqlite` - inspect the schema
-   first," or "`./logs/access.log` - parse, don't modify." Define terms once so it
-   doesn't guess: "revenue means `amount_cents / 100` for non-refunded orders."
-2. **The read-only rule.** "Read-only queries only - never write, alter, or drop.
-   Touch nothing outside `./data/`."
-3. **Show the work.** "Print the exact query or the files you used with every answer."
-4. **The honesty rule.** "If the data can't answer the question, say exactly what's
-   missing - don't approximate."
+Hermes can work with data through the tools your systems expose:
 
-Then just ask: top products last month, errors per hour yesterday, what changed since
-the last export. Read the queries it shows you - that's your audit trail.
+- **SQL databases** for transactions, customers, subscriptions, inventory, and other
+  structured records.
+- **Analytics services** for events, funnels, traffic, feature usage, and user behavior.
+- **APIs and MCP servers** for SaaS tools and internal services.
+- **Files and documentation** for exports, schemas, metric definitions, and business rules.
 
-## Grow it
+The connection method can be a database client, an API, an MCP integration, or an existing
+command-line tool. The important part is that Hermes can inspect the source and retrieve real
+results instead of guessing.
 
-Only after the interactive version earns trust:
+Docs: <https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp>
 
-- **A scheduled digest.** Ask Hermes to create a daily cron job that reports yesterday's
-  numbers against the trailing average and flags big moves. Verify with
-  `hermes cron list`. Docs: <https://hermes-agent.nousresearch.com/docs/user-guide/features/cron>
-- **Questions from chat.** The gateway lets you (or your team) ask from Telegram,
-  Discord, or Slack. Docs: <https://hermes-agent.nousresearch.com/docs/user-guide/messaging>
-- **Make it a skill.** Save the data description, definitions, and rules as a skill so
-  every session starts knowing your data.
-  Docs: <https://hermes-agent.nousresearch.com/docs/user-guide/features/skills>
+### 2. Define what the numbers mean
 
-## Safety notes
+Access is only half the job. Hermes also needs the definitions your team uses:
 
-- **Open a copy if it's precious.** Point the agent at a copy or read-only replica so a
-  mistake can't matter.
-- **It shows its work for a reason.** The query on every answer is your defense against
-  confident-but-wrong. Read it.
-- **Mind what's in the data.** CSVs and logs can carry PII or secrets - make the
-  delivery target as private as the data.
-- **Inspect the boundary:** `hermes tools list --platform cli` - confirm it can only
-  read the paths this task needs.
+- What counts as revenue?
+- Which statuses count as active?
+- How are refunds, tests, duplicates, and internal activity handled?
+- Which timezone and date boundaries should a report use?
+
+These definitions can live in a skill or in project documentation. Define them once and reuse
+them across questions.
+
+### 3. Match each question to the right source
+
+Different systems answer different questions:
+
+| Question | Best source |
+|---|---|
+| How much did we collect? | SQL transaction data |
+| Where are users dropping out? | Analytics events and funnels |
+| What does “active customer” mean? | Business documentation |
+| Why did a metric move? | SQL + analytics + recent changes |
+
+When sources disagree, decide which one is authoritative for that type of fact. A common
+pattern is SQL for money and account state, analytics for behavior, and documentation for
+definitions.
+
+### 4. Ask the question normally
+
+Examples:
+
+```text
+How did revenue this week compare with last week, and what drove the change?
+
+Where is the largest drop in our signup-to-purchase funnel?
+
+Did the new release change activation or refund behavior?
+
+Which customer segment is growing fastest?
+```
+
+Hermes translates the question into the required queries, checks the result, and returns:
+
+1. the answer first,
+2. the comparison or trend,
+3. the evidence and query,
+4. the important caveat,
+5. the recommended next move when one is clear.
+
+## A useful kickoff prompt
+
+```text
+Help me build a read-only analyst over my business data.
+
+First identify the SQL databases, analytics services, APIs, files, and business definitions
+available to you. For each source, explain what questions it can answer and what it should be
+treated as authoritative for.
+
+When I ask a question:
+- choose the right source or combine sources,
+- inspect schemas instead of inventing fields,
+- exclude test or duplicate data where appropriate,
+- show the query and important filters,
+- lead with the answer and explain what changed,
+- say what is missing when the data cannot answer cleanly.
+
+Start by asking me which business question matters most.
+```
+
+## Grow it after the first answer works
+
+- **Save the definitions as a skill** so new sessions use the same metric logic.
+- **Connect chat** so the team can ask from Discord, Telegram, or Slack.
+- **Schedule reports** for recurring KPIs, trends, and anomaly checks.
+- **Add another source** when a question cannot be answered from the current data.
 
 ## What "done" looks like
 
-A read-only assistant over one real dataset that answers plain-language questions,
-shows the query behind each answer, and refuses to guess when the data can't answer.
+Ask one real business question. Hermes chooses the right source, returns a correct answer,
+shows where it came from, and tells you what the number means. That is the pattern.

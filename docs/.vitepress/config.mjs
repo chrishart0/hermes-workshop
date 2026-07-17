@@ -7,6 +7,19 @@ export default withMermaid(defineConfig({
   description: "Build a practical AI agent with Hermes in one workshop.",
   cleanUrls: true,
   appearance: false,
+  // Remote SSH / LAN dev: bind all interfaces and keep HMR on the same host:port
+  // the browser used to open the page (avoids broken localhost:undefined sockets).
+  vite: {
+    server: {
+      host: true,
+      port: 5173,
+      strictPort: true,
+      hmr: {
+        // Use the host from the page URL; only pin the port.
+        clientPort: 5173
+      }
+    }
+  },
   sitemap: {
     hostname: "https://hermes.arcadian.cloud"
   },

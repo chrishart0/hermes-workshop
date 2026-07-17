@@ -1595,18 +1595,66 @@
 
 .uc-page .vp-doc .uc-row {
   display: grid;
-  grid-template-columns: minmax(248px, 0.92fr) minmax(0, 1.28fr);
-  column-gap: 32px;
-  align-items: baseline;
+  grid-template-columns: 34px minmax(0, 1fr);
+  column-gap: 10px;
+  align-items: stretch;
   border-bottom: 1px solid rgba(0, 0, 242, 0.12);
-  padding: 15px 0;
+  padding: 0;
   color: var(--hermes-ink);
-  text-decoration: none;
   transition: background 0.12s ease;
 }
 
 .uc-page .vp-doc .uc-row:hover {
   background: rgba(0, 0, 242, 0.03);
+}
+
+.uc-page .vp-doc .uc-favorite {
+  display: grid;
+  place-items: start center;
+  margin: 0;
+  padding-top: 15px;
+  cursor: pointer;
+}
+
+.uc-page .vp-doc .uc-favorite input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.uc-page .vp-doc .uc-favorite span {
+  font-size: 23px;
+  line-height: 1;
+  color: #b7b7c4;
+}
+
+.uc-page .vp-doc .uc-favorite input:checked + span {
+  color: var(--hermes-blue);
+}
+
+.uc-page .vp-doc .uc-favorite input:checked + span::before {
+  content: "★";
+  margin-right: -1em;
+}
+
+.uc-page .vp-doc .uc-favorite input:focus-visible + span {
+  outline: 2px solid rgba(0, 0, 242, 0.28);
+  outline-offset: 3px;
+}
+
+.uc-page .vp-doc .uc-row--favorite {
+  background: rgba(0, 0, 242, 0.025);
+}
+
+.uc-page .vp-doc .uc-row-link {
+  display: grid;
+  grid-template-columns: minmax(248px, 0.92fr) minmax(0, 1.28fr);
+  column-gap: 32px;
+  align-items: baseline;
+  padding: 15px 0;
+  color: var(--hermes-ink);
+  text-decoration: none;
 }
 
 .uc-page .vp-doc .uc-entry {
@@ -1622,6 +1670,7 @@
   color: var(--hermes-ink);
 }
 
+.uc-page .vp-doc .uc-row-link:hover strong,
 .uc-page .vp-doc .uc-row:hover strong {
   color: var(--hermes-blue);
 }
@@ -1816,10 +1865,16 @@
     text-align: left;
   }
   .uc-page .vp-doc .uc-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: 30px minmax(0, 1fr);
     column-gap: 0;
+  }
+  .uc-page .vp-doc .uc-favorite {
+    padding-top: 14px;
+  }
+  .uc-page .vp-doc .uc-row-link {
+    grid-template-columns: 1fr;
     row-gap: 8px;
-    padding: 14px 0;
+    padding: 14px 0 14px 8px;
   }
   .uc-page .vp-doc .uc-row strong {
     font-size: 20px;

@@ -25,14 +25,34 @@ flowchart LR
 
 Start by making sure you have one working LLM ready to power your agent.
 
-### Easiest path if you do not already have a subscription: OpenRouter
+::: details Free LLM Inference API Keys
+dsafsaf
 
-OpenRouter usually has free model endpoints available:
-<https://openrouter.ai/collections/free-models>.
+### True-free path: NVIDIA Build
 
-As of *July 2026*, [Tencent: Hy3](https://openrouter.ai/tencent/hy3:free) and [NVIDIA Nemotron 3 Ultra](https://openrouter.ai/nvidia/nemotron-3-ultra-550b-a55b:free) are good, free-tier, OpenRouter models to try for this workshop.
+If you need a no-card, no-credit-card path, use NVIDIA Build:
+<https://build.nvidia.com/models>.
 
-**Free as in beer.** OpenRouter's free tier is enough for initial setup, but free requests may be used for provider training/evals. OpenRouter currently advertises limited free usage, and a single complex agent task can burn 5-20+ model requests. If you like the workflow, putting a small amount of credit on OpenRouter is the simplest hosted path.
+Create an NVIDIA API key, then configure Hermes as an OpenAI-compatible custom
+endpoint:
+
+```text
+Base URL: https://integrate.api.nvidia.com/v1
+Model: nvidia/nemotron-3-ultra-550b-a55b
+```
+
+NVIDIA Build is the best true-free workshop path because it usually gives more room to experiment than OpenRouter's no-credit-card free tier. The tradeoff: NVIDIA's free limits are not guaranteed and can vary by model and traffic.
+
+### Most reliable free-model path: OpenRouter with $10 credit
+
+If you want the fewest surprises on free models, put **$10 of credit** on OpenRouter: <https://openrouter.ai/>.
+
+That $10 is not about buying paid inference for the workshop. It unlocks OpenRouter's bumped free-model rate limit. Free models (`:free`) are capped by lifetime credits purchased:
+
+- **Under $10 purchased:** 50 free-model requests per day (not enough for this 4 hour workshop)
+- **$10+ purchased (lifetime):** 1,000 free-model requests per day
+
+A single complex agent task can burn 5-20+ model requests, so the no-credit free tier is only a smoke test. The $10 unlock is what makes OpenRouter usable for a 4-hour workshop while still staying on free models. Free-model usage does not spend those credits.
 
 ### Subscriptions You May Already Have that Work With Hermes
 
@@ -41,16 +61,14 @@ Run `hermes model` and pick the provider you already have. Current Hermes docs l
 - **ChatGPT/Codex:** choose OpenAI Codex. Uses ChatGPT/Codex OAuth. Good workshop path if your account has Codex.
 - **GitHub Copilot paid plans:** choose GitHub Copilot. Uses OAuth/device-code flow, `COPILOT_GITHUB_TOKEN`, `GH_TOKEN`, or `gh auth token`.
 - **Google/Gemini accounts:** choose Google Gemini OAuth. Browser PKCE login; docs note free-tier support. Gemini API keys also work.
-- **Grok paid plans:** choose xAI Grok OAuth.
+- **Grok and X.com paid plans:** choose xAI Grok OAuth.
 - **Qwen accounts:** choose Qwen OAuth. Browser PKCE login.
 - **MiniMax accounts:** choose MiniMax OAuth. Browser PKCE login.
 - **Nous Portal subscriptions:** choose Nous Portal, or run `hermes setup --portal` for one-shot OAuth setup.
 
-
-
 See full list here: <https://hermes-agent.nousresearch.com/docs/integrations/providers>
 
-If none of those applies, use OpenRouter for the session. 
+If none of those applies, use NVIDIA Build for the true-free (no card) path, or OpenRouter with $10 credit to unlock the higher free-model rate limit.
 
 ### Local Open Weights models (not recommended during the session)
 
@@ -73,12 +91,13 @@ curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 
 ### Setup Guide
 1) Choose **full setup**, the Nous Portal quick setup will require a credit card
-2) Model provider: **OpenRouter** if you don't have another subscription
-3) Model: `tencent/hy3:free`
-4) Terminal backend: local
-5) Platform: skip set up gateway now - we'll do this together later in the session
-6) Tools: use the default set
-7) Browser provider: local
+2) Model provider: **Custom / OpenAI-compatible endpoint** for NVIDIA Build if you don't have another subscription
+3) Base URL: `https://integrate.api.nvidia.com/v1`
+4) Model: `nvidia/nemotron-3-ultra-550b-a55b`
+5) Terminal backend: local
+6) Platform: skip set up gateway now - we'll do this together later in the session
+7) Tools: use the default set
+8) Browser provider: local
 
 ::: details Optional: Safer Terminal Backends
 

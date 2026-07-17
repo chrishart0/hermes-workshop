@@ -39,6 +39,13 @@ Research and curate real-world examples of people using agents or agent-like wor
 - [ ] The doc is useful during the opening “art of the possible” phase.
 - [ ] Good examples are candidates for slide additions.
 
+## Review queue
+
+- [ ] Review the Hermes community thread [“Hermes use case you're most proud of?”](https://www.reddit.com/r/hermesagent/comments/1uwbeql/hermes_use_case_youre_most_proud_of/) for concrete, non-hype examples that could strengthen `docs/use-cases.md`.
+  - Extract distinct jobs-to-be-done, intended users, inputs/tools, outputs, cadence or trigger, and safety/human-review boundaries.
+  - Merge genuinely new patterns into the workshop library; do not inflate the list with near-duplicates.
+  - Preserve links to the strongest original examples so workshop claims remain grounded.
+
 ## Notes
 
 This should become a library of strong samples, not a generic link dump.

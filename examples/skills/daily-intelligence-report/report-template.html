@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Daily Intelligence Briefing</title>
+
+<!--
+  ============================================================================
+  DAILY INTELLIGENCE BRIEFING - PDF TEMPLATE
+  ============================================================================
+  This is the print template the daily-intelligence-report skill fills in and
+  renders to PDF. It is a plain, self-contained HTML file: all styling lives in
+  the <style> block below, and it renders offline with no network needed.
+
+  TWO WAYS THIS FILE IS USED
+  --------------------------
+  1. REBRAND (once, optional): the "Configure your PDF" walkthrough edits the
+     :root variables under "EDIT THESE TO REBRAND" and nothing else. That is the
+     whole personalization surface - name, accent color, fonts, paper size.
+  2. EACH RUN: the skill copies this file, replaces the {{TOKENS}} in the
+     masthead, and rebuilds the content between the masthead and the colophon
+     from the day's report - one <article class="signal"> per top signal, the
+     quiet list, and the tune-up. Then it renders the copy to PDF. This original
+     file stays as the template.
+
+  RENDER TO PDF (pick whichever tool the machine has; see SKILL.md "Render as PDF"):
+    weasyprint  briefing.html briefing.pdf
+    chromium --headless --no-pdf-header-footer --print-to-pdf=briefing.pdf briefing.html
+
+  The example content below is real, renderable filler so you can preview the
+  design immediately. Replace it with the day's report at run time.
+  ============================================================================
+-->
+
+<style>
+  /* ==========================================================================
+     EDIT THESE TO REBRAND  (this block is the entire "Configure your PDF" job)
+     ========================================================================== */
+  :root {
+    /* Identity */
+    --report-name: "The Daily Dispatch";   /* shown in CSS only via content(); the visible masthead text lives in <main> */
+    --accent:        #0000f2;   /* your one brand color - links, rank numbers, the "for you" rule */
+    --accent-press:  #0000c2;   /* a darker shade of the accent, for fine detail */
+
+    /* Ink + paper */
+    --ink:        #0b0b16;      /* primary text */
+    --ink-soft:   #45454f;      /* secondary text, "why it matters" body */
+    --ink-mute:   #7a7a86;      /* meta, captions, the quiet list */
+    --paper:      #ffffff;      /* page background */
+    --panel:      color-mix(in srgb, var(--accent) 6%, white);  /* panel tint, tracks --accent */
+    --hairline:   rgba(11, 11, 22, 0.14);
+
+    /* Type - swap these three lines to restyle everything */
+    --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+    --font-body:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono:    "IBM Plex Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+    /* Page - use "A4" instead of "letter" outside the US */
+    --page-size: letter;
+    --page-margin: 0.6in;
+  }
+
+  /* OFFLINE-SAFE BY DEFAULT. The template is tuned to look right with the system
+     fonts already in the stacks above (Georgia / system sans / system mono), so a
+     headless cron render with no network matches this preview exactly - no surprise
+     font swap in your scheduled PDF. Want the exact web faces (Playfair / Inter /
+     IBM Plex Mono) when rendering online? Uncomment the import below; the layout is
+     identical either way. Leaving it commented is the recommended default. */
+  /* @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"); */
+
+  /* ==========================================================================
+     Below here is layout. You can edit it, but rebranding rarely needs to.
+     ========================================================================== */
+
+  @page {
+    size: var(--page-size);
+    margin: var(--page-margin);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 10.5pt;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* On screen (preview), frame the sheet like paper. Print ignores this. */
+  @media screen {
+    body { background: #d8d9e6; padding: 32px 16px; }
+    .sheet {
+      width: 8.5in;
+      min-height: 11in;
+      margin: 0 auto;
+      padding: var(--page-margin);
+      background: var(--paper);
+      box-shadow: 0 12px 40px rgba(11, 11, 22, 0.22);
+    }
+  }
+  @media print {
+    .sheet { padding: 0; }
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+
+  /* ---- Masthead ----------------------------------------------------------- */
+  .masthead {
+    border-top: 3px solid var(--ink);
+    border-bottom: 1px solid var(--hairline);
+    padding-top: 10px;
+    margin-bottom: 13px;
+  }
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: 7.5pt;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 4px;
+  }
+  .wordmark {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 31pt;
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+    margin: 0 0 8px;
+  }
+  .dateline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    align-items: baseline;
+    font-family: var(--font-mono);
+    font-size: 8pt;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    padding-bottom: 8px;
+  }
+  .dateline b { color: var(--ink); font-weight: 600; }
+  .dateline .sep { color: var(--hairline); }
+
+  /* ---- Standfirst / the one thing ---------------------------------------- */
+  .standfirst {
+    background: var(--panel);
+    border-left: 3px solid var(--accent);
+    padding: 11px 16px;
+    margin: 0 0 16px;
+  }
+  .standfirst .label {
+    font-family: var(--font-mono);
+    font-size: 7pt;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 0 0 5px;
+  }
+  .standfirst p {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 13.5pt;
+    line-height: 1.4;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  /* ---- Section headings --------------------------------------------------- */
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 1.5px solid var(--ink);
+    padding-bottom: 5px;
+    margin: 0 0 10px;
+  }
+  .section-head h2 {
+    font-family: var(--font-mono);
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .section-head .count {
+    font-family: var(--font-mono);
+    font-size: 8pt;
+    color: var(--ink-mute);
+  }
+
+  /* ---- Signal (one per top item) ----------------------------------------- */
+  .signals { margin-bottom: 16px; }
+  .signal {
+    display: grid;
+    grid-template-columns: 0.42in 1fr;
+    gap: 0 14px;
+    padding: 10px 0 12px;
+    border-bottom: 1px solid var(--hairline);
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .signal:first-of-type { padding-top: 3px; }
+  .rank {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 15pt;
+    line-height: 1;
+    color: var(--accent);
+    padding-top: 2px;
+  }
+  .signal .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 7pt;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 0 0 3px;
+  }
+  .signal h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 13.5pt;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 0 0 5px;
+  }
+  /* The "for you" note is the signature: the reason this ranked, not a summary. */
+  .foryou {
+    border-left: 2px solid var(--accent);
+    padding: 1px 0 1px 11px;
+    margin: 0 0 6px;
+    color: var(--ink-soft);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .foryou .tag {
+    font-family: var(--font-mono);
+    font-size: 6.8pt;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-press);
+    display: block;
+    margin-bottom: 2px;
+  }
+  .signal .meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 10px;
+    font-family: var(--font-mono);
+    font-size: 8pt;
+    color: var(--ink-mute);
+  }
+  .signal .meta .src { color: var(--accent); font-weight: 500; }
+  .signal .meta .sep { color: var(--hairline); }
+  .action {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 7.5pt;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--ink);
+    background: color-mix(in srgb, var(--accent) 12%, white);
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, white);
+    border-radius: 999px;
+    padding: 1.5px 9px;
+  }
+
+  /* ---- Two-up footer sections: quiet + tune-up --------------------------- */
+  .row {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 22px;
+    break-inside: avoid;
+  }
+  .quiet ul { list-style: none; margin: 0; padding: 0; }
+  .quiet li {
+    display: flex;
+    gap: 8px;
+    font-size: 9.5pt;
+    color: var(--ink-mute);
+    padding: 3px 0;
+  }
+  .quiet li::before {
+    content: "-";
+    color: var(--hairline);
+    font-family: var(--font-mono);
+  }
+  .quiet .cat { color: var(--ink); font-weight: 500; }
+
+  .tuneup {
+    background: var(--panel);
+    padding: 14px 16px;
+  }
+  .tuneup .label {
+    font-family: var(--font-mono);
+    font-size: 7pt;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 0 0 6px;
+  }
+  .tuneup p { margin: 0; font-size: 9.5pt; line-height: 1.5; color: var(--ink-soft); }
+
+  /* ---- Colophon ----------------------------------------------------------- */
+  .colophon {
+    margin-top: 15px;
+    padding-top: 9px;
+    border-top: 1px solid var(--hairline);
+    font-family: var(--font-mono);
+    font-size: 7.5pt;
+    letter-spacing: 0.03em;
+    color: var(--ink-mute);
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .colophon a { color: var(--ink-mute); text-decoration: underline; text-underline-offset: 2px; }
+</style>
+</head>
+
+<body>
+<div class="sheet">
+
+  <!-- ======================= MASTHEAD ===================================== -->
+  <!-- AGENT: replace {{TOKENS}} each run. Keep .wordmark = the report name the
+       reader chose during "Configure your PDF". -->
+  <header class="masthead">
+    <p class="kicker">Personal Intelligence Briefing</p>
+    <h1 class="wordmark">The Daily Dispatch</h1>
+    <div class="dateline">
+      <span><b>{{WEEKDAY}}, {{MONTH DD, YYYY}}</b></span>
+      <span class="sep">/</span>
+      <span>No. {{ISSUE}}</span>
+      <span class="sep">/</span>
+      <span>{{READ_MIN}} min read</span>
+      <span class="sep">/</span>
+      <span>Filed for {{READER_NAME}}</span>
+    </div>
+  </header>
+
+  <!-- ======================= STANDFIRST (optional) ======================== -->
+  <!-- AGENT: one sentence - the single thing worth knowing today. Omit the whole
+       block on a genuinely quiet day rather than inventing drama. -->
+  <section class="standfirst">
+    <p class="label">The one thing</p>
+    <p>Patch the Postgres auth-bypass (CVE-2026-1042) before anything else today - your production line is exposed.</p>
+  </section>
+
+  <!-- ======================= TOP SIGNALS ================================== -->
+  <!-- AGENT: 3-7 <article class="signal">, ranked by relevance to the reader.
+       Duplicate one block per item. The .foryou note is required - it is the
+       reason this outranked everything else, in the reader's own terms. -->
+  <section class="signals">
+    <div class="section-head">
+      <h2>Top signals</h2>
+      <span class="count">3 of the day's ~60 items</span>
+    </div>
+
+    <article class="signal">
+      <div class="rank">01</div>
+      <div>
+        <p class="eyebrow">Security / your stack</p>
+        <h3>PostgreSQL ships out-of-band fix for CVE-2026-1042 auth bypass</h3>
+        <div class="foryou">
+          <span class="tag">Why this matters to you</span>
+          You run exactly this Postgres 16, reachable from the API subnet - patch
+          today, not this week.
+        </div>
+        <div class="meta">
+          <a class="src" href="#">postgresql.org/support/security</a>
+          <span class="sep">/</span>
+          <span>advisory - 6h ago</span>
+          <span class="action">Patch to 16.4 before deploys</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="signal">
+      <div class="rank">02</div>
+      <div>
+        <p class="eyebrow">Release / tools you run</p>
+        <h3>Tailscale 1.82 changes MagicDNS defaults for split-DNS setups</h3>
+        <div class="foryou">
+          <span class="tag">Why this matters to you</span>
+          Your homelab relies on split-DNS; the changelog's default flip can
+          silently break resolution on upgrade - pin or test first.
+        </div>
+        <div class="meta">
+          <a class="src" href="#">tailscale.com/changelog</a>
+          <span class="sep">/</span>
+          <span>release - today</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="signal">
+      <div class="rank">03</div>
+      <div>
+        <p class="eyebrow">Local / this week</p>
+        <h3>Founders + AI meetup Thursday, 6pm, eight minutes from you</h3>
+        <div class="foryou">
+          <span class="tag">Why this matters to you</span>
+          Small, technical, eight minutes away, and your Thursday's open - suggested
+          calendar hold below.
+        </div>
+        <div class="meta">
+          <a class="src" href="#">lu.ma/founders-ai</a>
+          <span class="sep">/</span>
+          <span>Thu 6:00-8:00pm</span>
+          <span class="action">Hold 5:45-8:15pm Thu</span>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ======================= QUIET + TUNE-UP ============================== -->
+  <div class="row">
+    <!-- AGENT: honesty section. One line per category you checked where nothing
+         cleared the bar. Never pad Top signals to avoid an empty day - list it
+         here instead. -->
+    <section class="quiet">
+      <div class="section-head">
+        <h2>Quiet today</h2>
+        <span class="count">checked, nothing actionable</span>
+      </div>
+      <ul>
+        <li><span class="cat">Newsletters</span> - three read; nothing touched your stack or projects.</li>
+        <li><span class="cat">CVEs (rest of stack)</span> - nginx, Docker, Debian all clear.</li>
+        <li><span class="cat">Local news</span> - nothing that changes your week.</li>
+      </ul>
+    </section>
+
+    <!-- AGENT: exactly one suggestion - a source, a relevance detail, or a
+         wiki page to add or drop. This is the self-improvement nudge. -->
+    <aside class="tuneup">
+      <p class="label">Tune-up</p>
+      <p>You've skipped every "AI funding round" item for a week. Want me to drop
+      funding news from the business source and watch product launches only?</p>
+    </aside>
+  </div>
+
+  <!-- ======================= COLOPHON ===================================== -->
+  <footer class="colophon">
+    <span>Assembled by Hermes - {{GENERATED_AT}}</span>
+    <span>Reply with feedback to sharpen tomorrow&rsquo;s issue.</span>
+  </footer>
+
+</div>
+</body>
+</html>

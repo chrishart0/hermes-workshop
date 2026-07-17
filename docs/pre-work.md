@@ -40,12 +40,32 @@ iex (irm https://hermes-agent.nousresearch.com/install.ps1)
 
 Start by making sure you have one working model path ready to power your agent.
 
-### Easiest path if you do not already have a subscription: OpenRouter
+### True-free path if you do not already have a subscription: NVIDIA Build
 
-OpenRouter usually has free model endpoints available:
-<https://openrouter.ai/collections/free-models>.
+If you need a no-card path, create an NVIDIA Build API key:
+<https://build.nvidia.com/models>.
 
-As of *June 2026*, DeepSeek V4 Pro and NVIDIA Nemotron 3 Ultra (free) are good OpenRouter models to try for this workshop.
+Use it with Hermes as an OpenAI-compatible custom endpoint:
+
+```text
+Base URL: https://integrate.api.nvidia.com/v1
+Model: nvidia/nemotron-3-ultra-550b-a55b
+```
+
+NVIDIA Build is the recommended true-free workshop path. Its free limits are not
+guaranteed, but it is usually a better no-card fit than OpenRouter's true-free
+tier for live experimentation.
+
+### Most reliable free-model path: OpenRouter with $10 credit
+
+If you want the fewest surprises on free models, put **$10 of credit** on OpenRouter: <https://openrouter.ai/>.
+
+That $10 is not about buying paid inference for the workshop. It unlocks OpenRouter's bumped free-model rate limit. Free models (`:free`) are capped by lifetime credits purchased:
+
+- **Under $10 purchased:** 50 free-model requests per day
+- **$10+ purchased (lifetime):** 1,000 free-model requests per day
+
+A single complex agent task can burn 5-20+ model requests, so the no-credit free tier is only a smoke test. The $10 unlock is what makes OpenRouter usable for a 4-hour workshop while still staying on free models. Free-model usage does not spend those credits.
 
 
 ### Subscriptions You May Already Have that Work With Hermes

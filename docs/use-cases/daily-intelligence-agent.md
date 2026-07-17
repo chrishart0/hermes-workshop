@@ -108,6 +108,35 @@ after every run for the first few days. It gets sharp fast.
 
 ---
 
+## Optional: make it a beautiful PDF
+
+Once the report content is dialed in, you can have Hermes render it as a polished, branded
+PDF and deliver it over your chat gateway - a personal wire service that lands in your
+Telegram/Discord/Slack/email each morning. This is optional; a clean Markdown report is a
+perfectly good finish line. Connect a gateway first (see [Stretch](#stretch-schedule-and-deliver)
+below) so the PDF has somewhere to land.
+
+The skill ships with a print template (`report-template.html`). This prompt walks you
+through making it yours - name, brand color, page size - turns PDF output on, and sets it
+to be delivered over your gateway.
+
+```text
+Set up PDF output for my daily-intelligence-report skill.
+
+Follow the skill's "Configure your PDF" section: ask me the setup questions one at a
+time, then personalize report-template.html (report name, brand color, page size),
+switch PDF output on, and set it up to be delivered over my connected chat gateway
+(Telegram/Discord/Slack/email) as an attachment. Do a test render, send it to me over
+the gateway so I can see it land, and keep changes limited to the template and the skill
+file.
+```
+
+Hermes asks a few quick questions, edits the template, renders a sample, and sends it to
+you over your gateway so you can see it before committing. After this, every run -
+including scheduled ones - delivers the PDF to your chat.
+
+---
+
 ## Stretch: schedule and deliver
 
 If you already had a gateway connected, the bootstrap scheduled your report for you -
@@ -138,5 +167,6 @@ tonight, not a requirement for the session.
 
 ## What to do Next?
 
-- PDF: save a clean Markdown report first; PDF formatting is a later topic.
+- PDF: get the Markdown report sharp first, then turn on a branded PDF with the optional
+  [Configure your PDF](#optional-make-it-a-beautiful-pdf) step above.
 - Break out the research into many daily research crons, then have 1 final report writer skill which produces a final report.

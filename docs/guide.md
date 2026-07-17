@@ -33,7 +33,7 @@ If you need a no-card, no-credit-card path, use NVIDIA Build:
 <https://build.nvidia.com/models?filters=nimType%3Anim_type_preview&label=text-to-text>.
 
 
-NVIDIA Build is the best true-free workshop path because it usually gives more room to experiment than OpenRouter's no-credit-card free tier. The tradeoff: NVIDIA's free limits are not guaranteed and can vary by model and traffic.
+NVIDIA Build is the best true-free path because it usually gives more room to experiment than OpenRouter's no-credit-card free tier. The tradeoff: NVIDIA's free limits are not guaranteed and can vary by model and traffic.
 
 ### Most reliable free-model path: OpenRouter with $10 credit
 
@@ -81,7 +81,6 @@ Default command-line install path for Linux, macOS, and WSL2:
 ```bash
 curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 ```
-
 
 ### 3) Setup Hermes
 
@@ -195,6 +194,16 @@ Choose one use case to build next. If you are unsure, start with the default pat
     <span class="path-choice-badge">Default path</span>
     <strong>Daily Intelligence Agent</strong>
     <em>Morning reports over the sources you already check, ranked by what matters to you.</em>
+  </a>
+  <a class="path-choice-card" href="/use-cases/competitor-market-watch">
+    <span class="path-choice-badge">Business</span>
+    <strong>Competitor and Market Watch</strong>
+    <em>Watch competitor sites, pricing, launches, and news; get what changed and why it matters.</em>
+  </a>
+  <a class="path-choice-card" href="/use-cases/sales-pipeline-followup">
+    <span class="path-choice-badge">Business</span>
+    <strong>Sales Pipeline Follow-up</strong>
+    <em>Turn a CRM or pipeline export into a ranked action list and draft follow-ups.</em>
   </a>
   <a class="path-choice-card" href="/use-cases/homelab-health">
     <span class="path-choice-badge">Technical</span>

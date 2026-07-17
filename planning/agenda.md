@@ -17,7 +17,7 @@ Detailed material lives elsewhere:
 - Objective / positioning: [`docs/workshop-objective.md`](workshop-objective.md)
 - Attendee activity: [`README.md`](../README.md) (the workshop guide is the README)
 - Default project prompt: [`docs/use-cases/daily-intelligence-agent.md`](../docs/use-cases/daily-intelligence-agent.md)
-- Alternative paths: [`docs/use-cases/homelab-health.md`](../docs/use-cases/homelab-health.md), [`docs/use-cases/alert-triage.md`](../docs/use-cases/alert-triage.md), [`docs/use-cases/chatops-data.md`](../docs/use-cases/chatops-data.md)
+- Alternative paths: [`docs/use-cases/competitor-market-watch.md`](../docs/use-cases/competitor-market-watch.md), [`docs/use-cases/sales-pipeline-followup.md`](../docs/use-cases/sales-pipeline-followup.md), [`docs/use-cases/homelab-health.md`](../docs/use-cases/homelab-health.md), [`docs/use-cases/alert-triage.md`](../docs/use-cases/alert-triage.md), [`docs/use-cases/chatops-data.md`](../docs/use-cases/chatops-data.md)
 - Template skill: [`examples/skills/daily-intelligence-report/SKILL.md`](../examples/skills/daily-intelligence-report/SKILL.md)
 
 ## Definition of done
@@ -125,15 +125,18 @@ Facilitation beats:
 - **Seed examples if the room is quiet:**
   - "Anyone running servers at home? Homelab health agent."
   - "Anyone on-call? Incident triage from monitoring webhooks."
-  - "Anyone managing a product or business? Daily key metrics report."
+  - "Anyone managing a product or business? Competitor watch, pipeline follow-up, or daily key metrics."
+  - "Anyone working a CRM or sales sheet? Sales pipeline follow-up agent."
   - "Anyone with a newsletter habit? Personal daily briefing."
   - "Anyone managing a team? Support/feedback summarization."
   - "Anyone working in security? CVE relevance against your actual stack."
-- **Steer toward the four workshop paths** as proven starting points:
+- **Steer toward the workshop paths** as proven starting points:
   1. Daily Intelligence Agent (default, easiest)
-  2. Homelab / Production Health
-  3. Incident Triage
-  4. ChatOps Over Your Data
+  2. Competitor and Market Watch
+  3. Sales Pipeline Follow-up
+  4. Homelab / Production Health
+  5. Incident Triage
+  6. ChatOps Over Your Data
 - **Ground expectations:** "You won't finish everything today. Pick one use case.
   The pattern is what matters - you can apply it to everything else later."
 - **Take 2-3 attendees' ideas live** and sketch them against the pattern:
@@ -228,11 +231,13 @@ Attendees choose their path:
 
 1. **Daily Intelligence Agent** (default) - polish the skill, run a second report,
    apply feedback, add sources.
-2. **Homelab / Production Health** - point Hermes at your machines, define thresholds,
+2. **Competitor and Market Watch** - name competitors, public sources, first market brief.
+3. **Sales Pipeline Follow-up** - point Hermes at a CRM/pipeline export, get today's action list.
+4. **Homelab / Production Health** - point Hermes at your machines, define thresholds,
    generate a first triage.
-3. **Incident Triage** - write a triage prompt, test it against a sample payload,
+5. **Incident Triage** - write a triage prompt, test it against a sample payload,
    set up a webhook route.
-4. **ChatOps Over Your Data** - point Hermes at a CSV, SQLite DB, or log directory,
+6. **ChatOps Over Your Data** - point Hermes at a CSV, SQLite DB, or log directory,
    ask real questions.
 
 Coach: circulate, unblock, suggest next steps, help people who got stuck on install
@@ -240,6 +245,8 @@ catch up. This is the most important part of the session - protect it.
 
 Alternative path guides live here:
 
+- [`docs/use-cases/competitor-market-watch.md`](../docs/use-cases/competitor-market-watch.md)
+- [`docs/use-cases/sales-pipeline-followup.md`](../docs/use-cases/sales-pipeline-followup.md)
 - [`docs/use-cases/homelab-health.md`](../docs/use-cases/homelab-health.md)
 - [`docs/use-cases/alert-triage.md`](../docs/use-cases/alert-triage.md)
 - [`docs/use-cases/chatops-data.md`](../docs/use-cases/chatops-data.md)

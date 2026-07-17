@@ -1,10 +1,11 @@
 ---
-title: Team Knowledge Workflow Agent
-description: Handle one repeated knowledge-work process with files, browser, and computer use when needed.
+title: Virtual Employee / Team Knowledge Workflow
+description: Train your agent on one recurring knowledge-work task with files, browser, and computer use when needed.
 pageClass: uc-page
 audience: professional
 tags:
   - knowledge-work
+  - virtual-employee
   - browser
   - computer-use
   - idea-only
@@ -13,9 +14,9 @@ safety: human-review
 guide_status: idea-only
 ---
 
-# Team Knowledge Workflow Agent
+# Virtual Employee / Team Knowledge Workflow
 
-Handle one repeated knowledge-work process with files, browser, and computer use when needed.
+Train your agent to manage one recurring knowledge-work task - files, browser, and computer use when needed.
 
 <div class="uc-meta" aria-label="Use case metadata">
   <div><span>Guide status</span><strong>idea-only</strong></div>
@@ -26,7 +27,7 @@ Handle one repeated knowledge-work process with files, browser, and computer use
 
 ## Who it helps
 
-Operators, project managers, recruiters, sales teams, and professionals with recurring browser/file workflows.
+Operators, project managers, recruiters, sales teams, and professionals with recurring browser/file workflows who want a virtual employee for one job, not a general chatbot.
 
 ## What it watches
 

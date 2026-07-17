@@ -6,7 +6,7 @@ Build an agent that does something useful for you and lives where you work. From
 
 ### Part 1) Art of the Possible
 - **What's an agent** - not a chatbot. Memory, tools, skills, and a schedule
-- **Real use cases** - daily intelligence briefing, business KPI report, homelab health, incident triage, Chat over your data
+- **Real use cases** - daily intelligence briefing, competitor/market watch, sales pipeline follow-up, business KPI report, homelab health, incident triage, Chat over your data
 - **Why Hermes** - works where you already work, self-improving skills, multi-platform, ease of setup
 - **Use-case brainstorm** - figure out what *you* want to build before touching install
 
@@ -37,6 +37,8 @@ Build an agent that does something useful for you and lives where you work. From
 | Path | What it does | Best if you |
 |---|---|---|
 | **[Daily Intelligence](docs/use-cases/daily-intelligence-agent.md)** | Morning reports over your sources, ranked by what matters to you | Want a working agent fastest |
+| **[Competitor and Market Watch](docs/use-cases/competitor-market-watch.md)** | Public competitor/market signals into a short "what changed" brief | Track competitors or market moves |
+| **[Sales Pipeline Follow-up](docs/use-cases/sales-pipeline-followup.md)** | Pipeline export into a ranked action list and draft follow-ups | Work a CRM or sales spreadsheet |
 | **[Homelab Health](docs/use-cases/homelab-health.md)** | Read-only triage of disk, services, logs, containers | Run servers at home |
 | **[Incident Triage](docs/use-cases/alert-triage.md)** | Turns monitoring webhooks into human triage summaries | Are on-call |
 | **[ChatOps Over Your Data](docs/use-cases/chatops-data.md)** | Plain-language questions over CSVs, SQLite, logs | Query data by hand regularly |

@@ -117,14 +117,14 @@ description: A hands-on, 4-hour workshop to build your first useful AI agent wit
       <p class="hw-body">Pick one of these in the custom build lab and adapt the pattern to your own data and workflow - or browse the <a href="/use-cases">use case library</a> for more ideas.</p>
     </div>
     <div class="hw-cards">
-      <article class="hw-card"><span class="hw-card-n">Daily briefings</span><p>Read newsletters, websites, events, releases, or updates and summarize only what matters.</p></article>
-      <article class="hw-card"><span class="hw-card-n">Competitor and market watch</span><p>Track competitor pricing, launches, and market signals, then get a short brief on what changed.</p></article>
-      <article class="hw-card"><span class="hw-card-n">Sales pipeline follow-up</span><p>Turn a CRM or pipeline export into a ranked action list and draft follow-ups for you to send.</p></article>
-      <article class="hw-card"><span class="hw-card-n">Alert triage</span><p>Evaluate inbound alerts and issues, then summarize, escalate, or resolve the routine ones.</p></article>
+      <article class="hw-card"><span class="hw-card-n">Self-improving briefings</span><p>Read newsletters, websites, events, releases, or updates and summarize only what matters.</p></article>
+      <article class="hw-card"><span class="hw-card-n">Alert triage and resolution</span><p>Evaluate inbound issues, draft escalation, and help resolve the routine ones with a human in the loop.</p></article>
       <article class="hw-card"><span class="hw-card-n">Research tracking</span><p>Watch a topic, grant, policy, market, company, competitor, or project and report meaningful changes.</p></article>
       <article class="hw-card"><span class="hw-card-n">Operations health</span><p>Inspect systems, dashboards, services, or recurring checks and report only what needs attention.</p></article>
-      <article class="hw-card"><span class="hw-card-n">Personal admin</span><p>Track and schedule your events, appointments, renewals, travel, and recurring chores.</p></article>
-      <article class="hw-card"><span class="hw-card-n">Knowledge work</span><p>Train your agent on a specific recurring task, with browser and computer use when it needs them.</p></article>
+      <article class="hw-card"><span class="hw-card-n">Personal admin</span><p>Track, manage, and schedule events, appointments, renewals, reminders, purchases, travel, and recurring chores.</p></article>
+      <article class="hw-card"><span class="hw-card-n">Virtual employee</span><p>Train your agent on specific knowledge-work tasks with browser and computer-use automation when needed.</p></article>
+      <article class="hw-card"><span class="hw-card-n">Competitor and market watch</span><p>Track competitor pricing, launches, and market signals, then get a short brief on what changed.</p></article>
+      <article class="hw-card"><span class="hw-card-n">Sales pipeline follow-up</span><p>Turn a CRM or pipeline export into a ranked action list and draft follow-ups for you to send.</p></article>
     </div>
     <div class="hw-section-actions">
       <a class="hw-btn hw-btn-ghost" href="/use-cases">Browse the use case library</a>

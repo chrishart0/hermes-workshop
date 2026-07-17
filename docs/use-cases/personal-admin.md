@@ -1,6 +1,6 @@
 ---
 title: Personal Admin Agent
-description: Track events, appointments, renewals, reminders, purchases, travel, and recurring chores.
+description: Track, manage, and schedule events, appointments, renewals, reminders, purchases, travel, and recurring chores.
 pageClass: uc-page
 audience: personal
 tags:
@@ -15,7 +15,7 @@ guide_status: idea-only
 
 # Personal Admin Agent
 
-Track events, appointments, renewals, reminders, purchases, travel, and recurring chores.
+Track, manage, and schedule your events, appointments, renewals, reminders, purchases, travel, and recurring chores.
 
 <div class="uc-meta" aria-label="Use case metadata">
   <div><span>Guide status</span><strong>idea-only</strong></div>

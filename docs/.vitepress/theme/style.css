@@ -1634,7 +1634,7 @@
 }
 
 .uc-page .vp-doc .uc-favorite input:checked + span::before {
-  content: "★";
+  content: "☑";
   margin-right: -1em;
 }
 
@@ -1644,7 +1644,8 @@
 }
 
 .uc-page .vp-doc .uc-row--favorite {
-  background: rgba(0, 0, 242, 0.025);
+  background: rgba(0, 0, 242, 0.06);
+  border-left: 3px solid var(--hermes-blue);
 }
 
 .uc-page .vp-doc .uc-row-link {

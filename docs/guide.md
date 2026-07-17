@@ -26,20 +26,12 @@ flowchart LR
 Start by making sure you have one working LLM ready to power your agent.
 
 ::: details Free LLM Inference API Keys
-dsafsaf
 
 ### True-free path: NVIDIA Build
 
 If you need a no-card, no-credit-card path, use NVIDIA Build:
-<https://build.nvidia.com/models>.
+<https://build.nvidia.com/models?filters=nimType%3Anim_type_preview&label=text-to-text>.
 
-Create an NVIDIA API key, then configure Hermes as an OpenAI-compatible custom
-endpoint:
-
-```text
-Base URL: https://integrate.api.nvidia.com/v1
-Model: nvidia/nemotron-3-ultra-550b-a55b
-```
 
 NVIDIA Build is the best true-free workshop path because it usually gives more room to experiment than OpenRouter's no-credit-card free tier. The tradeoff: NVIDIA's free limits are not guaranteed and can vary by model and traffic.
 
@@ -53,6 +45,8 @@ That $10 is not about buying paid inference for the workshop. It unlocks OpenRou
 - **$10+ purchased (lifetime):** 1,000 free-model requests per day
 
 A single complex agent task can burn 5-20+ model requests, so the no-credit free tier is only a smoke test. The $10 unlock is what makes OpenRouter usable for a 4-hour workshop while still staying on free models. Free-model usage does not spend those credits.
+
+:::
 
 ### Subscriptions You May Already Have that Work With Hermes
 
@@ -89,15 +83,19 @@ curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 ```
 
 
-### Setup Guide
-1) Choose **full setup**, the Nous Portal quick setup will require a credit card
-2) Model provider: **Custom / OpenAI-compatible endpoint** for NVIDIA Build if you don't have another subscription
-3) Base URL: `https://integrate.api.nvidia.com/v1`
-4) Model: `nvidia/nemotron-3-ultra-550b-a55b`
-5) Terminal backend: local
-6) Platform: skip set up gateway now - we'll do this together later in the session
-7) Tools: use the default set
-8) Browser provider: local
+### 3) Setup Hermes
+
+***Screen:* How would you like to set up Hermes?**
+
+>  (○) Full setup — configure every provider, tool & option yourself (bring your own keys)
+
+Choose **full setup**, the Nous Portal quick setup will require a credit card
+
+***Screen:* Select provider:**
+
+Choose the LLM API provider you decided in step 1. 
+
+***Screen:* Select terminal backend:**
 
 ::: details Optional: Safer Terminal Backends
 
@@ -124,15 +122,31 @@ SSH backend environment variables are documented here:
 
 :::
 
-## 3) Configure Provider and Model
 
-You likely setup a model in the initial install flow, here is how you can change that.
+***Screen:* Select terminal backend:**
+> Local
 
-```bash
-hermes model
-```
+***Screen:* Select platforms to configure:**
+This screen is asking you to pick a chat platform to talk to your agent on.
 
-## Test Hermes works
+Don't select any, click `enter` to skip setting up a chat platform. We will do this later.
+
+***Screen:* Tools for 🖥️  CLI**
+Defaults are fine, click `enter`
+
+***Screen:* Choose a provider:**
+Configure the web browser you want hermes to use
+
+> local
+
+***Screen:* Select Search Provider:**
+
+Duckduckgo is the easiest, since it requires to API key. Others are better.
+
+Firecrawl and Tavily are both excellent, if you choose to try either go setup a free tier account. Both are generous.  
+
+
+## 4) Test Hermes works
 
 Run a local CLI chat:
 
@@ -198,6 +212,19 @@ Choose one use case to build next. If you are unsure, start with the default pat
     <em>Ask plain-language questions over CSVs, SQLite, logs, and docs.</em>
   </a>
 </div>
+
+::: details Chat Gateway setup
+
+Optional command for QR code to make telegram setup easier
+```bash
+uv pip install --python ~/.hermes/hermes-agent/venv/bin/python qrcode
+```
+
+Setup your chat gateway
+```bash
+hermes gateway setup
+```
+:::
 
 
 ## References

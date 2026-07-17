@@ -97,3 +97,16 @@ tags:
 </section>
 </div>
 
+<p class="uc-eyebrow">More ideas elsewhere</p>
+
+## Other use case libraries
+
+<p class="uc-lead">The library above is the workshop's curated shortlist. When you want more shapes to borrow from, these community and official directories collect Hermes flows and agent use cases from people building in the open.</p>
+
+<div class="uc-grid">
+<a class="uc-card" href="https://github.com/aliaihub/awesome-hermes-usecases" target="_blank" rel="noopener"><span>GitHub · Curated catalog</span><strong>Awesome Hermes Use Cases</strong><em>Around 50 use cases sorted by category (automation, messaging, coding, home, content, multi-agent, ops, security, finance, deploy). Every entry needs a primary source, and it ships runnable demos like a daily briefing and a team Telegram bot.</em></a>
+<a class="uc-card" href="https://hermes-agent.nousresearch.com/docs/user-stories" target="_blank" rel="noopener"><span>Official · Nous Research</span><strong>User Stories &amp; Use Cases</strong><em>First-person community stories gathered from X, GitHub, Reddit, HN, blogs, and podcasts. Closer to what people actually run than to polished how-tos.</em></a>
+<a class="uc-card" href="https://github.com/0xNyk/awesome-hermes-agent" target="_blank" rel="noopener"><span>GitHub · Ecosystem directory</span><strong>Awesome Hermes Agent</strong><em>Skills, plugins, memory providers, surfaces, bridges, and playbooks. Best once you know the shape of the job and need installable pieces rather than fresh ideas.</em></a>
+<a class="uc-card" href="https://www.reddit.com/r/hermesagent/comments/1t6gf4j/megathread_hermes_agent_use_cases_what_the/" target="_blank" rel="noopener"><span>Community · Reddit</span><strong>Use Cases Megathread</strong><em>Messier than the curated lists, but the best signal for what people are shipping this month.</em></a>
+</div>
+

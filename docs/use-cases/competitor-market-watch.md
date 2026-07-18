@@ -15,9 +15,9 @@ guide_status: setup-guide
 
 # Competitor and Market Watch
 
-An alternative workshop path. Same guided setup as the [default path](daily-intelligence-agent.md) -
-fetch a template skill, let Hermes interview you, run your first report - just pointed at
-competitors and market signals instead of your morning sources.
+A guided setup in three moves: fetch a template skill, let Hermes interview you about who
+you're up against, then run your first brief. By the end you have a competitive-watch skill
+that's yours - your competitors, your sources, filtered down to what you'd actually act on.
 
 **Watches:** competitor sites, pricing pages, changelogs, blogs, app reviews, job posts, news.
 **Delivers:** a short brief - what *changed*, why it might matter, links, and watch / ignore / act.

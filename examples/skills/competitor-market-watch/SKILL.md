@@ -184,12 +184,6 @@ surface or ignore → *What counts as a change*; what makes you act → *Decisio
 format changes → *Brief format*. This is the whole self-improvement loop: feedback in, skill
 edits out, next brief sharper.
 
-## Safety
-
-Read public sources only. No logins, no scraping behind authentication, no paid-data
-access the user hasn't set up. Every claim needs a source link - if you can't cite it,
-don't surface it. Never invent a competitor move; "no material change" is always a valid
-finding.
 
 ## Later
 

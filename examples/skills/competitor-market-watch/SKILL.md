@@ -33,15 +33,10 @@ Interview the user - one question at a time, rough answers welcome. Don't over-c
 the feedback loop sharpens everything later. Four questions.
 
 1. **Who are you up against?** 2-5 competitors or alternatives, plus one line on what the
-   user sells and to whom. That last part is what makes the brief relevant.
-2. **Which public sources per competitor?** Pricing/product pages, changelog or release
-   notes, blog, app-store or review pages, job posts, news. One to three each to start -
-   URLs are best. If they don't know, suggest starters and let them pick.
-3. **What counts as a change worth surfacing, and what's noise?** e.g. surface pricing,
-   packaging, launches, positioning shifts, hiring for a capability; ignore press fluff,
-   recycled announcements, funding gossip, rumor with no source.
-4. **What would make you act, and how often should this run?** The decision filter (roadmap,
-   pricing, sales talk track, week plan) and the cadence (weekly is usually plenty).
+   user sells and to whom. That last part is what makes the brief relevant. Or, just give me your website and I will come back with a list of your competitor for you to approve.
+2. **Which public sources per competitor?** Pricing/product pages, changelog or release notes, blog, app-store or review pages, job posts, news. One to three each to start - URLs are best. If they don't know, suggest starters and let them pick.
+3. **What counts as a change worth surfacing, and what's noise?** e.g. surface pricing, packaging, launches, positioning shifts, hiring for a capability; ignore press fluff, recycled announcements, funding gossip, rumor with no source.
+4. **What would make you act, and how often should this run?** The decision filter (roadmap, pricing, sales talk track, week plan) and the cadence (weekly is usually plenty).
 
 Then edit this skill file (`skill_manage` edit, or edit the file directly):
 

@@ -13,12 +13,7 @@ safety: decision-support
 guide_status: setup-guide
 ---
 
-# WIP: Incident Triage Agent
-
-*WIP: This is untested*
-
-An alternative workshop path. Unlike the [default path](daily-intelligence-agent.md),
-this one is a pattern you drive yourself, not a script we walk through together.
+# Incident Triage Agent
 
 **Watches:** webhooks from Uptime Kuma, Grafana, Alertmanager - anything that POSTs JSON.
 **Delivers:** a prose triage to your on-call channel: severity, likely cause, first
@@ -67,16 +62,6 @@ Then point a real source at the endpoint - each of these can POST JSON to a URL:
 
 Mirror alerts to the agent *alongside* your existing on-call path, not replacing it.
 Compare its triage to reality for a week before you lean on it.
-
-## Safety notes
-
-- **No auto-remediation.** The prompt forbids the agent from acting - on day one and
-  probably day one hundred.
-- **Payloads are untrusted input.** Keep the evidence rule in the prompt; real payloads
-  can carry anything.
-- **No prod creds while testing.** Use made-up payloads until the route is trusted.
-- **Mind payload contents.** Real alerts can contain internal hostnames and IDs - make
-  sure the delivery target is as private as the data.
 
 ## What "done" looks like
 

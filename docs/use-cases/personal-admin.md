@@ -42,8 +42,5 @@ A weekly admin brief with upcoming deadlines, missing information, and suggested
 
 ## First safe version
 
-Start read-only with copied inputs. Let it remind and draft, not purchase, book, or cancel.
+Start read-only access to email and calendar. Let it remind, draft, and schedule. Not purchase, book, or cancel.
 
-## Stretch version
-
-Connect a delivery channel and add explicit approval flows for narrow actions.

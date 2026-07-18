@@ -226,7 +226,10 @@ Start with coding agents as the familiar proof point, then widen the frame: if a
 - Real world examples
 - Hermes
 - You setup Hermes
-- What will you build?
+- Daily report skill
+- What will you build? (brainstorm)
+- Building-session
+- Judging
 
 ---
 <style scoped>
@@ -376,9 +379,9 @@ Callback: Ana is all four lines at full size - memory = the business definitions
 
 --- 
 
-# Workshop guide
+# Daily Intelligence Skill
 
-github.com/chrishart0/hermes-workshop/
+<https://hermes.arcadian.cloud/guide>
 
 ## Checklist
 
@@ -386,8 +389,5 @@ github.com/chrishart0/hermes-workshop/
 ✅ Install Hermes
 ✅ Configure Hermes with a model
 ✅ Test Hermes, say hi
-✅ Follow `docs/use-cases/daily-intelligence-agent.md` to setup your agent
-
-### Stretch Goal
-
-✅ Configure a gateway, hermes sends your repots and chats where you are (Discord, telegram, etc)
+✅ Follow `https://hermes.arcadian.cloud/guide` to setup your agent
+✅ Configure a gateway, hermes sends your reports and chats where you are (Discord, telegram, etc)

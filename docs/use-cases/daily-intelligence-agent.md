@@ -143,7 +143,6 @@ If you already had a gateway connected, the bootstrap scheduled your report for 
 skip ahead. Otherwise:
 
 ### 1) Setup your messaging *gateway* of choice (Discord, telegram, email, etc)
-*~5-30 minute project*
 <https://hermes-agent.nousresearch.com/docs/user-guide/messaging/>
 
 
@@ -157,13 +156,6 @@ Schedule my daily-intelligence-report for delivery on my chosen schedule, e.g. 8
 
 ---
 
-## What "done" looks like today
-
-Hermes installed, a provider connected, the smoke test passing, a gateway
-connected to your messaging platform, and one daily-intelligence-report skill
-bootstrapped for something you actually care about - ideally with a first report
-generated and one round of feedback applied. Cron scheduling is a win for
-tonight, not a requirement for the session.
 
 ## What to do Next?
 

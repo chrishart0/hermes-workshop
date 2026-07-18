@@ -1,6 +1,6 @@
 ---
 title: Sales Pipeline Follow-up
-description: Turn a CRM or pipeline export into a daily action list: stale deals, missing next steps, and draft follow-ups.
+description: 'Turn a CRM or pipeline export into a daily action list: stale deals, missing next steps, and draft follow-ups.'
 pageClass: uc-page
 audience: manager-founder
 tags:

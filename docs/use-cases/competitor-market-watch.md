@@ -15,9 +15,7 @@ guide_status: setup-guide
 
 # Competitor and Market Watch
 
-An alternative workshop path. Same guided setup as the [default path](daily-intelligence-agent.md) -
-fetch a template skill, let Hermes interview you, run your first report - just pointed at
-competitors and market signals instead of your morning sources.
+Let Hermes interview you, run your first report just pointed at competitors and market signals instead of your morning sources.
 
 **Watches:** competitor sites, pricing pages, changelogs, blogs, app reviews, job posts, news.
 **Delivers:** a short brief - what *changed*, why it might matter, links, and watch / ignore / act.
@@ -34,8 +32,7 @@ flowchart LR
     E -. "next run is sharper" .-> A
 ```
 
-The skill remembers what each source looked like last run, so run two onward reports what
-*changed* - not the whole landscape again.
+The skill remembers what each source looked like last run, so run two onward reports what *changed* - not the whole landscape again.
 
 ---
 
@@ -62,7 +59,7 @@ Hermes will ask you four questions:
 4. **What would make you act, and how often to run** (weekly is usually plenty).
 
 When the bootstrap finishes, Hermes offers you a first-run message. Send it. The first brief
-is a **baseline** - it maps the current state of each competitor. Change-detection kicks in
+is a **baseline**, it maps the current state of each competitor. Change-detection kicks in
 on the second run, when there's a prior snapshot to diff against.
 
 ---
@@ -90,14 +87,11 @@ filter, the format. Do this after the first couple of runs and it gets sharp fas
 
 Only after the first brief is useful:
 
-- **Schedule it.** Weekly is usually enough. If a gateway was already connected at bootstrap,
-  Hermes may have scheduled this for you - check `hermes cron list` first. Otherwise ask
-  Hermes to cron it for Monday morning or Friday afternoon, and verify the same way.
+- **Schedule it.** Weekly is usually enough. Ask Hermes to cron it for Monday morning or Friday afternoon, and verify the same way.
   Docs: <https://hermes-agent.nousresearch.com/docs/user-guide/features/cron>
 - **Deliver it where you work.** Gateway to Telegram, Discord, Slack, email.
   Docs: <https://hermes-agent.nousresearch.com/docs/user-guide/messaging>
-- **Tighten with feedback.** "Pricing only if it changed. Drop competitor X. Add review
-  volume on the app store. Shorter." Hermes edits the skill, not just nods.
+- **Tighten with feedback.** "Pricing only if it changed. Drop competitor X. Add review volume on the app store. Shorter." Hermes edits the skill, not just nods.
 
 ---
 
